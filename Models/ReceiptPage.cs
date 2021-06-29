@@ -46,7 +46,7 @@ namespace ReceiptTemplateSkiaSharp.Models
         public LabelCoordinations PricingDivider1 { get; set; }
         public LabelCoordinations PricingDivider2 { get; set; }
 
-        public LabelCoordinations PaymentSummeryTitle { get; set; }
+        public LabelCoordinations PaymentSummaryTitle { get; set; }
 
         public List<PaymentTransaction> PaymentTransactions { get; set; }
         public LabelCoordinations PaymentDivider { get; set; }
@@ -55,8 +55,8 @@ namespace ReceiptTemplateSkiaSharp.Models
         public LabelCoordinations ChangeValue { get; set; }
         public LabelCoordinations ChangeDivider { get; set; }
 
-        public LabelCoordinations LocationTitle { get; set; }
         public LabelCoordinations LocationName { get; set; }
+        public LabelCoordinations LocationPhoneNumber { get; set; }
         public LabelCoordinations ThanksTitle { get; set; }
         public LabelCoordinations Barcode { get; set; }
         public LabelCoordinations BarcodeNumber { get; set; }

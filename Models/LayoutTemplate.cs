@@ -55,7 +55,7 @@ namespace ReceiptTemplateSkiaSharp.Models
         public Dimensions PricingDivider1 { get; set; }
         public Dimensions PricingDivider2 { get; set; }
 
-        public Dimensions PaymentSummeryTitle { get; set; }
+        public Dimensions PaymentSummaryTitle { get; set; }
 
         public Dimensions PaymentTransactionTitle { get; set; }
         public Dimensions PaymentTransactionValue { get; set; }
@@ -65,8 +65,8 @@ namespace ReceiptTemplateSkiaSharp.Models
         public Dimensions ChangeValue { get; set; }
         public Dimensions ChangeDivider { get; set; }
 
-        public Dimensions LocationTitle { get; set; }
         public Dimensions LocationName { get; set; }
+        public Dimensions LocationPhoneNumber { get; set; }
         public Dimensions ThanksTitle { get; set; }
         public Dimensions Barcode { get; set; }
         public Dimensions BarcodeNumber { get; set; }
