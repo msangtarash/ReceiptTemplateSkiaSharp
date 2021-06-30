@@ -79,7 +79,6 @@ namespace ReceiptTemplateSkiaSharp.Models
         public float Top { get; set; }
         public float Left { get; set; }
         public float TopPadding { get; set; }
-        public float LeftPadding { get; set; }
         public float Height { get; set; }
         public float Width { get; set; }
         public string Color { get; set; } = "000000";
