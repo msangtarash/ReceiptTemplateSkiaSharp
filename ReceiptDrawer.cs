@@ -2,13 +2,42 @@
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using ZXing;
 
 namespace ReceiptTemplateSkiaSharp
 {
-    public class ReceiptDrawer
+    public class LabelDrawer
     {
+        private ReceiptPage _receiptPage;
+
+        public LabelDrawer(ReceiptPage receiptPage)
+        {
+            _receiptPage = receiptPage;
+        }
+
+        public void CreateImage()
+        {
+            SKImageInfo imageInfo = new SKImageInfo(_receiptPage.Width, _receiptPage.Height);
+            using SKSurface surface = SKSurface.Create(imageInfo);
+            SKCanvas canvas = surface.Canvas;
+            DrawOnCanvas(canvas, _receiptPage);
+            using SKImage image = surface.Snapshot();
+            using SKData data = image.Encode(SKEncodedImageFormat.Png, 80);
+            using FileStream stream = File.OpenWrite(Path.Combine(AppContext.BaseDirectory, $"receiptImage.png"));
+            data.SaveTo(stream);
+        }
+
+        public void CreatePdf(int dpi)
+        {
+            using SKFileWStream stream = new SKFileWStream(Path.Combine(AppContext.BaseDirectory, "doc.pdf"));
+            using SKDocument document = SKDocument.CreatePdf(stream, dpi);
+            using SKCanvas pdfCanvas = document.BeginPage(_receiptPage.Width, _receiptPage.Height);
+            DrawOnCanvas(pdfCanvas, _receiptPage);
+            document.Close();
+        }
+
         public void DrawOnCanvas(SKCanvas canvas, ReceiptPage page)
         {
             canvas.Clear(SKColors.White);
