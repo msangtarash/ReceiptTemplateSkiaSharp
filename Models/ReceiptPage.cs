@@ -58,7 +58,6 @@ namespace ReceiptTemplateSkiaSharp.Models
         public LabelCoordinations LocationPhoneNumber { get; set; }
         public LabelCoordinations ThanksTitle { get; set; }
         public LabelCoordinations Barcode { get; set; }
-        public LabelCoordinations BarcodeNumber { get; set; }
         public LabelCoordinations Logo { get; set; }
     }
 

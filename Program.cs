@@ -31,13 +31,19 @@ namespace ReceiptTemplateSkiaSharp
             return new ReceiptPage
             {
                 StoreName = new LabelCoordinations { Title = "Store Name" },
+                StoreNameDivider = new LabelCoordinations { },
+
                 Date = new LabelCoordinations { Title = "12 /5 /1252" },
                 RegisterName = new LabelCoordinations { Title = "Register Name" },
                 StaffName = new LabelCoordinations { Title = "Staff Name" },
+                HeaderDivider = new LabelCoordinations { },
+
                 CustomerTitle = new LabelCoordinations { Title = "CUSTOMER Details:" },
                 CustomerAddress = new LabelCoordinations { Title = "Tehran -24 Alay -55 unit" },
                 CustomerName = new LabelCoordinations { Title = "Sam som" },
                 CustomerPhoneNumber = new LabelCoordinations { Title = "555 - 555 - 444" },
+                CustomerDivider = new LabelCoordinations { },
+
                 OrderDescriptionTitle = new LabelCoordinations { Title = "Description" },
                 OrderQuantityTitle = new LabelCoordinations { Title = "Qty" },
                 OrderTotalTitle = new LabelCoordinations { Title = "Total" },
@@ -69,16 +75,21 @@ namespace ReceiptTemplateSkiaSharp
                         NoteValue = new LabelCoordinations{ Title = "this is a note"},
                     },
 
-                    new OrderItem
-                    {
-                        Name = new LabelCoordinations{ Title = "T-shirt"},
-                        Quantity = new LabelCoordinations{ Title = "3"},
-                        TotalPrice = new LabelCoordinations{ Title = "250$"},
-                        NoteTitle = new LabelCoordinations{ Title = "Note:"},
-                        NoteValue = new LabelCoordinations{ Title = "this is a note"},
-                    }
+                    //new OrderItem
+                    //{
+                    //    Name = new LabelCoordinations{ Title = "T-shirt"},
+                    //    Quantity = new LabelCoordinations{ Title = "3"},
+                    //    TotalPrice = new LabelCoordinations{ Title = "250$"},
+                    //    NoteTitle = new LabelCoordinations{ Title = "Note:"},
+                    //    NoteValue = new LabelCoordinations{ Title = "this is a note"},
+                    //}
                 },
+                OrderDivider = new LabelCoordinations { },
+
                 OrderNote = new LabelCoordinations { Title = "Note: This is an Order item Note." },
+                NoteDivider1 = new LabelCoordinations { },
+                NoteDivider2 = new LabelCoordinations { },
+
                 SubtotalTitle = new LabelCoordinations { Title = "Subtotal" },
                 SubtotalValue = new LabelCoordinations { Title = "$50.97" },
                 TaxTitle = new LabelCoordinations { Title = "Tax" },
@@ -87,6 +98,9 @@ namespace ReceiptTemplateSkiaSharp
                 DiscountValue = new LabelCoordinations { Title = "$50.97" },
                 SaleTotalTitle = new LabelCoordinations { Title = "Sale Total" },
                 SaleValue = new LabelCoordinations { Title = "$50.97" },
+                PricingDivider1 = new LabelCoordinations { },
+                PricingDivider2 = new LabelCoordinations { },
+
                 PaymentSummaryTitle = new LabelCoordinations { Title = "Payment Summary:" },
                 PaymentTransactions = new List<PaymentTransaction>
                 {
@@ -102,8 +116,12 @@ namespace ReceiptTemplateSkiaSharp
                          Value = new LabelCoordinations{ Title = "$50.97"},
                     },
                 },
+                PaymentDivider = new LabelCoordinations { },
+
                 ChangeTitle = new LabelCoordinations { Title = "Change" },
                 ChangeValue = new LabelCoordinations { Title = "$50.97" },
+                ChangeDivider = new LabelCoordinations { },
+
                 LocationName = new LabelCoordinations { Title = "Location Name" },
                 LocationPhoneNumber = new LabelCoordinations { Title = "555-4215-552:" },
                 ThanksTitle = new LabelCoordinations { Title = "Thanks for Shoping" },

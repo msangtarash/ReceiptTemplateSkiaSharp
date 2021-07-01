@@ -20,6 +20,9 @@ namespace ReceiptTemplateSkiaSharp
         {
             return new LayoutTemplate
             {
+                PageWidth = 302 ,
+                LeftMargin = 24,
+
                 StoreName = new Dimensions
                 {
                     Color = "#0F0F13",
