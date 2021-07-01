@@ -8,7 +8,6 @@ namespace ReceiptTemplateSkiaSharp.Models
     {
         public int Width { get; set; }
         public int Height { get; set; }
-        public int PageNumber { get; set; }
 
         public LabelCoordinations StoreName { get; set; }
         public LabelCoordinations StoreNameDivider { get; set; }

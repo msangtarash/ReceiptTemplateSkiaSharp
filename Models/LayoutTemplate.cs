@@ -72,6 +72,9 @@ namespace ReceiptTemplateSkiaSharp.Models
         public Dimensions BarcodeNumber { get; set; }
         public Dimensions Logo { get; set; }
 
+        public int PageWidthInt => (int)Math.Ceiling(PageWidth);
+        public int PageHeightInt => (int)Math.Ceiling(PageHeight);
+
     }
 
     public class Dimensions
