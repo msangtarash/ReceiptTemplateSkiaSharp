@@ -33,7 +33,7 @@ namespace ReceiptTemplateSkiaSharp
                 StoreName = new LabelCoordinations { Title = "Store Name" },
                 StoreNameDivider = new LabelCoordinations { },
 
-                Date = new LabelCoordinations { Title = "12 /5 /1252" },
+                Date = new LabelCoordinations { Title = "Date and Time" },
                 RegisterName = new LabelCoordinations { Title = "Register Name" },
                 StaffName = new LabelCoordinations { Title = "Staff Name" },
                 HeaderDivider = new LabelCoordinations { },

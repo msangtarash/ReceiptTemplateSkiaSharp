@@ -57,17 +57,14 @@ namespace ReceiptTemplateSkiaSharp
 
             using (SKPaint storeNameDivider = new SKPaint())
             {
-                SKColor.TryParse(page.StoreName.Color, out SKColor color);
+                SKColor.TryParse(page.StoreNameDivider.Color, out SKColor color);
 
                 storeNameDivider.Color = color;
-
                 var pointA = new SKPoint(page.StoreNameDivider.Left, page.StoreNameDivider.Top);
                 var pointB = new SKPoint(page.StoreNameDivider.Left + page.StoreNameDivider.Width, page.StoreNameDivider.Top);
 
                 canvas.DrawLine(pointA, pointB, storeNameDivider);
             }
-
-            //divider
 
             using (SKPaint dateTime = new SKPaint())
             {
@@ -80,460 +77,540 @@ namespace ReceiptTemplateSkiaSharp
                 canvas.DrawText(page.Date.Title, page.Date.Left, page.Date.Top, dateTime);
             }
 
-            //using (SKPaint registerName = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.RegisterName.Color, out SKColor color);
+            using (SKPaint registerName = new SKPaint())
+            {
+                SKColor.TryParse(page.RegisterName.Color, out SKColor color);
 
-            //    registerName.Color = color;
+                registerName.Color = color;
 
-            //    registerName.TextSize = page.RegisterName.TextSize;
+                registerName.TextSize = page.RegisterName.TextSize;
 
-            //    canvas.DrawText(page.RegisterName.Title, page.RegisterName.Left, page.RegisterName.Top, registerName);
-            //}
+                canvas.DrawText(page.RegisterName.Title, page.RegisterName.Left, page.RegisterName.Top, registerName);
+            }
 
-            //using (SKPaint staffName = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.StaffName.Color, out SKColor color);
+            using (SKPaint staffName = new SKPaint())
+            {
+                SKColor.TryParse(page.StaffName.Color, out SKColor color);
 
-            //    staffName.Color = color;
+                staffName.Color = color;
 
-            //    staffName.TextSize = page.StaffName.TextSize;
+                staffName.TextSize = page.StaffName.TextSize;
 
-            //    canvas.DrawText(page.StaffName.Title, page.StaffName.Left, page.StaffName.Top, staffName);
-            //}
+                canvas.DrawText(page.StaffName.Title, page.StaffName.Left, page.StaffName.Top, staffName);
+            }
 
-            ////divider
+            using (SKPaint headerDivider = new SKPaint())
+            {
+                SKColor.TryParse(page.HeaderDivider.Color, out SKColor color);
 
-            //using (SKPaint staffName = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.StaffName.Color, out SKColor color);
+                headerDivider.Color = color;
 
-            //    staffName.Color = color;
+                var pointA = new SKPoint(page.HeaderDivider.Left, page.HeaderDivider.Top);
+                var pointB = new SKPoint(page.HeaderDivider.Left + page.HeaderDivider.Width, page.HeaderDivider.Top);
 
-            //    staffName.TextSize = page.StaffName.TextSize;
+                canvas.DrawLine(pointA, pointB, headerDivider);
+            }
 
-            //    canvas.DrawText(page.StaffName.Title, page.StaffName.Left, page.StaffName.Top, staffName);
-            //}
+            using (SKPaint staffName = new SKPaint())
+            {
+                SKColor.TryParse(page.StaffName.Color, out SKColor color);
 
-            //using (SKPaint customerTitle = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.CustomerTitle.Color, out SKColor color);
+                staffName.Color = color;
 
-            //    customerTitle.Color = color;
+                staffName.TextSize = page.StaffName.TextSize;
 
-            //    customerTitle.TextSize = page.CustomerTitle.TextSize;
+                canvas.DrawText(page.StaffName.Title, page.StaffName.Left, page.StaffName.Top, staffName);
+            }
 
-            //    canvas.DrawText(page.CustomerTitle.Title, page.CustomerTitle.Left, page.CustomerTitle.Top, customerTitle);
-            //}
+            using (SKPaint customerTitle = new SKPaint())
+            {
+                SKColor.TryParse(page.CustomerTitle.Color, out SKColor color);
 
-            //using (SKPaint customerAddress = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.CustomerAddress.Color, out SKColor color);
+                customerTitle.Color = color;
 
-            //    customerAddress.Color = color;
+                customerTitle.TextSize = page.CustomerTitle.TextSize;
 
-            //    customerAddress.TextSize = page.CustomerAddress.TextSize;
+                customerTitle.FakeBoldText = true;
 
-            //    canvas.DrawText(page.CustomerAddress.Title, page.CustomerAddress.Left, page.CustomerAddress.Top, customerAddress);
-            //}
+                canvas.DrawText(page.CustomerTitle.Title, page.CustomerTitle.Left, page.CustomerTitle.Top, customerTitle);
+            }
 
-            //using (SKPaint customerName = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.CustomerAddress.Color, out SKColor color);
+            using (SKPaint customerAddress = new SKPaint())
+            {
+                SKColor.TryParse(page.CustomerAddress.Color, out SKColor color);
 
-            //    customerName.Color = color;
+                customerAddress.Color = color;
 
-            //    customerName.TextSize = page.CustomerName.TextSize;
+                customerAddress.TextSize = page.CustomerAddress.TextSize;
 
-            //    canvas.DrawText(page.CustomerName.Title, page.CustomerName.Left, page.CustomerName.Top, customerName);
-            //}
+                canvas.DrawText(page.CustomerAddress.Title, page.CustomerAddress.Left, page.CustomerAddress.Top, customerAddress);
+            }
 
-            //using (SKPaint customerPhoneNumber = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.CustomerPhoneNumber.Color, out SKColor color);
+            using (SKPaint customerName = new SKPaint())
+            {
+                SKColor.TryParse(page.CustomerAddress.Color, out SKColor color);
 
-            //    customerPhoneNumber.Color = color;
+                customerName.Color = color;
 
-            //    customerPhoneNumber.TextSize = page.CustomerPhoneNumber.TextSize;
+                customerName.TextSize = page.CustomerName.TextSize;
 
-            //    canvas.DrawText(page.CustomerPhoneNumber.Title, page.CustomerPhoneNumber.Left, page.CustomerPhoneNumber.Top, customerPhoneNumber);
-            //}
+                canvas.DrawText(page.CustomerName.Title, page.CustomerName.Left, page.CustomerName.Top, customerName);
+            }
 
-            ////divider
+            using (SKPaint customerPhoneNumber = new SKPaint())
+            {
+                SKColor.TryParse(page.CustomerPhoneNumber.Color, out SKColor color);
 
-            //using (SKPaint orderDescriptionTitle = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.OrderDescriptionTitle.Color, out SKColor color);
+                customerPhoneNumber.Color = color;
 
-            //    orderDescriptionTitle.Color = color;
+                customerPhoneNumber.TextSize = page.CustomerPhoneNumber.TextSize;
 
-            //    orderDescriptionTitle.TextSize = page.OrderDescriptionTitle.TextSize;
+                canvas.DrawText(page.CustomerPhoneNumber.Title, page.CustomerPhoneNumber.Left, page.CustomerPhoneNumber.Top, customerPhoneNumber);
+            }
 
-            //    canvas.DrawText(page.OrderDescriptionTitle.Title, page.OrderDescriptionTitle.Left, page.OrderDescriptionTitle.Top, orderDescriptionTitle);
-            //}
+            using (SKPaint customerDivider = new SKPaint())
+            {
+                SKColor.TryParse(page.CustomerDivider.Color, out SKColor color);
 
-            //using (SKPaint orderQuantityTitle = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.OrderQuantityTitle.Color, out SKColor color);
+                customerDivider.Color = color;
 
-            //    orderQuantityTitle.Color = color;
+                var pointA = new SKPoint(page.CustomerDivider.Left, page.CustomerDivider.Top);
+                var pointB = new SKPoint(page.CustomerDivider.Left + page.CustomerDivider.Width, page.CustomerDivider.Top);
 
-            //    orderQuantityTitle.TextSize = page.OrderQuantityTitle.TextSize;
+                canvas.DrawLine(pointA, pointB, customerDivider);
+            }
 
-            //    canvas.DrawText(page.OrderQuantityTitle.Title, page.OrderQuantityTitle.Left, page.OrderQuantityTitle.Top, orderQuantityTitle);
-            //}
+            using (SKPaint orderDescriptionTitle = new SKPaint())
+            {
+                SKColor.TryParse(page.OrderDescriptionTitle.Color, out SKColor color);
 
-            //using (SKPaint orderTotalTitle = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.OrderTotalTitle.Color, out SKColor color);
+                orderDescriptionTitle.Color = color;
 
-            //    orderTotalTitle.Color = color;
+                orderDescriptionTitle.TextSize = page.OrderDescriptionTitle.TextSize;
 
-            //    orderTotalTitle.TextSize = page.OrderTotalTitle.TextSize;
+                orderDescriptionTitle.FakeBoldText = true;
 
-            //    canvas.DrawText(page.OrderTotalTitle.Title, page.OrderTotalTitle.Left, page.OrderTotalTitle.Top, orderTotalTitle);
-            //}
+                canvas.DrawText(page.OrderDescriptionTitle.Title, page.OrderDescriptionTitle.Left, page.OrderDescriptionTitle.Top, orderDescriptionTitle);
+            }
 
-            //foreach (var orderItem in page.OrderItems)
-            //{
-            //    using (SKPaint orderItemName = new SKPaint())
-            //    {
-            //        SKColor.TryParse(orderItem.Name.Color, out SKColor color);
+            using (SKPaint orderQuantityTitle = new SKPaint())
+            {
+                SKColor.TryParse(page.OrderQuantityTitle.Color, out SKColor color);
 
-            //        orderItemName.Color = color;
+                orderQuantityTitle.Color = color;
 
-            //        orderItemName.TextSize = orderItem.Name.TextSize;
+                orderQuantityTitle.TextSize = page.OrderQuantityTitle.TextSize;
 
-            //        canvas.DrawText(orderItem.Name.Title, orderItem.Name.Left, orderItem.Name.Top, orderItemName);
-            //    }
+                orderQuantityTitle.FakeBoldText = true;
 
-            //    using (SKPaint orderItemQuantity = new SKPaint())
-            //    {
-            //        SKColor.TryParse(orderItem.Quantity.Color, out SKColor color);
+                canvas.DrawText(page.OrderQuantityTitle.Title, page.OrderQuantityTitle.Left, page.OrderQuantityTitle.Top, orderQuantityTitle);
+            }
 
-            //        orderItemQuantity.Color = color;
+            using (SKPaint orderTotalTitle = new SKPaint())
+            {
+                SKColor.TryParse(page.OrderTotalTitle.Color, out SKColor color);
 
-            //        orderItemQuantity.TextSize = orderItem.Quantity.TextSize;
+                orderTotalTitle.Color = color;
 
-            //        canvas.DrawText(orderItem.Quantity.Title, orderItem.Quantity.Left, orderItem.Quantity.Top, orderItemQuantity);
-            //    }
+                orderTotalTitle.TextSize = page.OrderTotalTitle.TextSize;
 
-            //    using (SKPaint totalPrice = new SKPaint())
-            //    {
-            //        SKColor.TryParse(orderItem.TotalPrice.Color, out SKColor color);
+                orderTotalTitle.FakeBoldText = true;
 
-            //        totalPrice.Color = color;
+                canvas.DrawText(page.OrderTotalTitle.Title, page.OrderTotalTitle.Left, page.OrderTotalTitle.Top, orderTotalTitle);
+            }
 
-            //        totalPrice.TextSize = orderItem.TotalPrice.TextSize;
+            foreach (var orderItem in page.OrderItems)
+            {
+                using (SKPaint orderItemName = new SKPaint())
+                {
+                    SKColor.TryParse(orderItem.Name.Color, out SKColor color);
 
-            //        canvas.DrawText(orderItem.TotalPrice.Title, orderItem.TotalPrice.Left, orderItem.TotalPrice.Top, totalPrice);
-            //    }
+                    orderItemName.Color = color;
 
-            //    using (SKPaint discountTitle = new SKPaint())
-            //    {
-            //        SKColor.TryParse(orderItem.DiscountTitle.Color, out SKColor color);
+                    orderItemName.TextSize = orderItem.Name.TextSize;
 
-            //        discountTitle.Color = color;
+                    canvas.DrawText(orderItem.Name.Title, orderItem.Name.Left, orderItem.Name.Top, orderItemName);
+                }
 
-            //        discountTitle.TextSize = orderItem.DiscountTitle.TextSize;
+                using (SKPaint orderItemQuantity = new SKPaint())
+                {
+                    SKColor.TryParse(orderItem.Quantity.Color, out SKColor color);
 
-            //        canvas.DrawText(orderItem.DiscountTitle.Title, orderItem.DiscountTitle.Left, orderItem.DiscountTitle.Top, discountTitle);
-            //    }
+                    orderItemQuantity.Color = color;
 
-            //    using (SKPaint discountValue = new SKPaint())
-            //    {
-            //        SKColor.TryParse(orderItem.DiscountValue.Color, out SKColor color);
+                    orderItemQuantity.TextSize = orderItem.Quantity.TextSize;
 
-            //        discountValue.Color = color;
+                    canvas.DrawText(orderItem.Quantity.Title, orderItem.Quantity.Left, orderItem.Quantity.Top, orderItemQuantity);
+                }
 
-            //        discountValue.TextSize = orderItem.DiscountValue.TextSize;
+                using (SKPaint totalPrice = new SKPaint())
+                {
+                    SKColor.TryParse(orderItem.TotalPrice.Color, out SKColor color);
 
-            //        canvas.DrawText(orderItem.DiscountValue.Title, orderItem.DiscountValue.Left, orderItem.DiscountValue.Top, discountValue);
-            //    }
+                    totalPrice.Color = color;
 
-            //    using (SKPaint mainPrice = new SKPaint())
-            //    {
-            //        SKColor.TryParse(orderItem.MainPrice.Color, out SKColor color);
+                    totalPrice.TextSize = orderItem.TotalPrice.TextSize;
 
-            //        mainPrice.Color = color;
+                    canvas.DrawText(orderItem.TotalPrice.Title, orderItem.TotalPrice.Left, orderItem.TotalPrice.Top, totalPrice);
+                }
 
-            //        mainPrice.TextSize = orderItem.MainPrice.TextSize;
+                using (SKPaint discountTitle = new SKPaint())
+                {
+                    SKColor.TryParse(orderItem.DiscountTitle.Color, out SKColor color);
 
-            //        canvas.DrawText(orderItem.MainPrice.Title, orderItem.MainPrice.Left, orderItem.MainPrice.Top, mainPrice);
-            //    }
+                    discountTitle.Color = color;
 
-            //    using (SKPaint values = new SKPaint())
-            //    {
-            //        SKColor.TryParse(orderItem.Values.Color, out SKColor color);
+                    discountTitle.TextSize = orderItem.DiscountTitle.TextSize;
 
-            //        values.Color = color;
+                    canvas.DrawText(orderItem.DiscountTitle.Title, orderItem.DiscountTitle.Left, orderItem.DiscountTitle.Top, discountTitle);
+                }
 
-            //        values.TextSize = orderItem.Values.TextSize;
+                using (SKPaint discountValue = new SKPaint())
+                {
+                    SKColor.TryParse(orderItem.DiscountValue.Color, out SKColor color);
 
-            //        canvas.DrawText(orderItem.Values.Title, orderItem.Values.Left, orderItem.Values.Top, values);
-            //    }
+                    discountValue.Color = color;
 
-            //    using (SKPaint noteTitle = new SKPaint())
-            //    {
-            //        SKColor.TryParse(orderItem.NoteTitle.Color, out SKColor color);
+                    discountValue.TextSize = orderItem.DiscountValue.TextSize;
 
-            //        noteTitle.Color = color;
+                    canvas.DrawText(orderItem.DiscountValue.Title, orderItem.DiscountValue.Left, orderItem.DiscountValue.Top, discountValue);
+                }
 
-            //        noteTitle.TextSize = orderItem.NoteTitle.TextSize;
+                using (SKPaint mainPrice = new SKPaint())
+                {
+                    SKColor.TryParse(orderItem.MainPrice.Color, out SKColor color);
 
-            //        canvas.DrawText(orderItem.NoteTitle.Title, orderItem.NoteTitle.Left, orderItem.NoteTitle.Top, noteTitle);
-            //    }
+                    mainPrice.Color = color;
 
-            //    using (SKPaint noteValue = new SKPaint())
-            //    {
-            //        SKColor.TryParse(orderItem.NoteValue.Color, out SKColor color);
+                    mainPrice.TextSize = orderItem.MainPrice.TextSize;
 
-            //        noteValue.Color = color;
+                    canvas.DrawText(orderItem.MainPrice.Title, orderItem.MainPrice.Left, orderItem.MainPrice.Top, mainPrice);
+                }
 
-            //        noteValue.TextSize = orderItem.NoteValue.TextSize;
+                using (SKPaint values = new SKPaint())
+                {
+                    SKColor.TryParse(orderItem.Values.Color, out SKColor color);
 
-            //        canvas.DrawText(orderItem.NoteValue.Title, orderItem.NoteValue.Left, orderItem.NoteValue.Top, noteValue);
-            //    }
-            //}
+                    values.Color = color;
 
-            ////divider
+                    values.TextSize = orderItem.Values.TextSize;
 
-            //using (SKPaint orderNote = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.OrderNote.Color, out SKColor color);
+                    canvas.DrawText(orderItem.Values.Title, orderItem.Values.Left, orderItem.Values.Top, values);
+                }
 
-            //    orderNote.Color = color;
+                using (SKPaint noteTitle = new SKPaint())
+                {
+                    SKColor.TryParse(orderItem.NoteTitle.Color, out SKColor color);
 
-            //    orderNote.TextSize = page.OrderNote.TextSize;
+                    noteTitle.Color = color;
 
-            //    canvas.DrawText(page.OrderNote.Title, page.OrderNote.Left, page.OrderNote.Top, orderNote);
-            //}
+                    noteTitle.TextSize = orderItem.NoteTitle.TextSize;
 
-            //using (SKPaint orderNote = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.OrderNote.Color, out SKColor color);
+                    canvas.DrawText(orderItem.NoteTitle.Title, orderItem.NoteTitle.Left, orderItem.NoteTitle.Top, noteTitle);
+                }
 
-            //    orderNote.Color = color;
+                using (SKPaint noteValue = new SKPaint())
+                {
+                    SKColor.TryParse(orderItem.NoteValue.Color, out SKColor color);
 
-            //    orderNote.TextSize = page.OrderNote.TextSize;
+                    noteValue.Color = color;
 
-            //    canvas.DrawText(page.OrderNote.Title, page.OrderNote.Left, page.OrderNote.Top, orderNote);
-            //}
+                    noteValue.TextSize = orderItem.NoteValue.TextSize;
 
-            ////divider
-            ////divider
+                    canvas.DrawText(orderItem.NoteValue.Title, orderItem.NoteValue.Left, orderItem.NoteValue.Top, noteValue);
+                }
+            }
 
-            //using (SKPaint subtotalTitle = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.SubtotalTitle.Color, out SKColor color);
+            using (SKPaint orderDivider = new SKPaint())
+            {
+                SKColor.TryParse(page.OrderDivider.Color, out SKColor color);
 
-            //    subtotalTitle.Color = color;
+                orderDivider.Color = color;
 
-            //    subtotalTitle.TextSize = page.SubtotalTitle.TextSize;
+                var pointA = new SKPoint(page.OrderDivider.Left, page.OrderDivider.Top);
+                var pointB = new SKPoint(page.OrderDivider.Left + page.OrderDivider.Width, page.OrderDivider.Top);
 
-            //    canvas.DrawText(page.SubtotalTitle.Title, page.SubtotalTitle.Left, page.SubtotalTitle.Top, subtotalTitle);
-            //}
+                canvas.DrawLine(pointA, pointB, orderDivider);
+            }
 
-            //using (SKPaint subtotalValue = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.SubtotalValue.Color, out SKColor color);
+            using (SKPaint orderNote = new SKPaint())
+            {
+                SKColor.TryParse(page.OrderNote.Color, out SKColor color);
 
-            //    subtotalValue.Color = color;
+                orderNote.Color = color;
 
-            //    subtotalValue.TextSize = page.SubtotalValue.TextSize;
+                orderNote.TextSize = page.OrderNote.TextSize;
 
-            //    canvas.DrawText(page.SubtotalValue.Title, page.SubtotalValue.Left, page.SubtotalValue.Top, subtotalValue);
-            //}
+                canvas.DrawText(page.OrderNote.Title, page.OrderNote.Left, page.OrderNote.Top, orderNote);
+            }
 
-            //using (SKPaint taxTitle = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.TaxTitle.Color, out SKColor color);
+            using (SKPaint noteDivider1 = new SKPaint())
+            {
+                SKColor.TryParse(page.NoteDivider1.Color, out SKColor color);
 
-            //    taxTitle.Color = color;
+                noteDivider1.Color = color;
 
-            //    taxTitle.TextSize = page.TaxTitle.TextSize;
+                var pointA = new SKPoint(page.NoteDivider1.Left, page.NoteDivider1.Top);
+                var pointB = new SKPoint(page.NoteDivider1.Left + page.NoteDivider1.Width, page.NoteDivider1.Top);
 
-            //    canvas.DrawText(page.TaxTitle.Title, page.TaxTitle.Left, page.TaxTitle.Top, taxTitle);
-            //}
+                canvas.DrawLine(pointA, pointB, noteDivider1);
+            }
 
-            //using (SKPaint taxValue = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.TaxValue.Color, out SKColor color);
+            using (SKPaint noteDivider2 = new SKPaint())
+            {
+                SKColor.TryParse(page.NoteDivider2.Color, out SKColor color);
 
-            //    taxValue.Color = color;
+                noteDivider2.Color = color;
 
-            //    taxValue.TextSize = page.TaxValue.TextSize;
+                var pointA = new SKPoint(page.NoteDivider2.Left, page.NoteDivider2.Top);
+                var pointB = new SKPoint(page.NoteDivider2.Left + page.NoteDivider2.Width, page.NoteDivider2.Top);
 
-            //    canvas.DrawText(page.TaxValue.Title, page.TaxValue.Left, page.TaxValue.Top, taxValue);
-            //}
+                canvas.DrawLine(pointA, pointB, noteDivider2);
+            }
 
-            //using (SKPaint discountTitle = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.DiscountTitle.Color, out SKColor color);
+            using (SKPaint subtotalTitle = new SKPaint())
+            {
+                SKColor.TryParse(page.SubtotalTitle.Color, out SKColor color);
 
-            //    discountTitle.Color = color;
+                subtotalTitle.Color = color;
 
-            //    discountTitle.TextSize = page.DiscountTitle.TextSize;
+                subtotalTitle.TextSize = page.SubtotalTitle.TextSize;
 
-            //    canvas.DrawText(page.DiscountTitle.Title, page.DiscountTitle.Left, page.DiscountTitle.Top, discountTitle);
-            //}
+                canvas.DrawText(page.SubtotalTitle.Title, page.SubtotalTitle.Left, page.SubtotalTitle.Top, subtotalTitle);
+            }
 
-            //using (SKPaint discountValue = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.DiscountValue.Color, out SKColor color);
+            using (SKPaint subtotalValue = new SKPaint())
+            {
+                SKColor.TryParse(page.SubtotalValue.Color, out SKColor color);
 
-            //    discountValue.Color = color;
+                subtotalValue.Color = color;
 
-            //    discountValue.TextSize = page.DiscountValue.TextSize;
+                subtotalValue.TextSize = page.SubtotalValue.TextSize;
 
-            //    canvas.DrawText(page.DiscountValue.Title, page.DiscountValue.Left, page.DiscountValue.Top, discountValue);
-            //}
+                canvas.DrawText(page.SubtotalValue.Title, page.SubtotalValue.Left, page.SubtotalValue.Top, subtotalValue);
+            }
 
-            //using (SKPaint saleTotalTitle = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.SaleTotalTitle.Color, out SKColor color);
+            using (SKPaint taxTitle = new SKPaint())
+            {
+                SKColor.TryParse(page.TaxTitle.Color, out SKColor color);
 
-            //    saleTotalTitle.Color = color;
+                taxTitle.Color = color;
 
-            //    saleTotalTitle.TextSize = page.SaleTotalTitle.TextSize;
+                taxTitle.TextSize = page.TaxTitle.TextSize;
 
-            //    canvas.DrawText(page.SaleTotalTitle.Title, page.SaleTotalTitle.Left, page.SaleTotalTitle.Top, saleTotalTitle);
-            //}
+                canvas.DrawText(page.TaxTitle.Title, page.TaxTitle.Left, page.TaxTitle.Top, taxTitle);
+            }
 
-            //using (SKPaint saleValue = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.SaleValue.Color, out SKColor color);
+            using (SKPaint taxValue = new SKPaint())
+            {
+                SKColor.TryParse(page.TaxValue.Color, out SKColor color);
 
-            //    saleValue.Color = color;
+                taxValue.Color = color;
 
-            //    saleValue.TextSize = page.SaleValue.TextSize;
+                taxValue.TextSize = page.TaxValue.TextSize;
 
-            //    canvas.DrawText(page.SaleValue.Title, page.SaleValue.Left, page.SaleValue.Top, saleValue);
-            //}
+                canvas.DrawText(page.TaxValue.Title, page.TaxValue.Left, page.TaxValue.Top, taxValue);
+            }
 
-            //using (SKPaint paymentSummaryTitle = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.PaymentSummaryTitle.Color, out SKColor color);
+            using (SKPaint discountTitle = new SKPaint())
+            {
+                SKColor.TryParse(page.DiscountTitle.Color, out SKColor color);
 
-            //    paymentSummaryTitle.Color = color;
+                discountTitle.Color = color;
 
-            //    paymentSummaryTitle.TextSize = page.PaymentSummaryTitle.TextSize;
+                discountTitle.TextSize = page.DiscountTitle.TextSize;
 
-            //    canvas.DrawText(page.PaymentSummaryTitle.Title, page.PaymentSummaryTitle.Left, page.PaymentSummaryTitle.Top, paymentSummaryTitle);
-            //}
+                canvas.DrawText(page.DiscountTitle.Title, page.DiscountTitle.Left, page.DiscountTitle.Top, discountTitle);
+            }
 
-            ////divider
-            ////divider
+            using (SKPaint discountValue = new SKPaint())
+            {
+                SKColor.TryParse(page.DiscountValue.Color, out SKColor color);
 
-            //using (SKPaint paymentSummaryTitle = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.PaymentSummaryTitle.Color, out SKColor color);
+                discountValue.Color = color;
 
-            //    paymentSummaryTitle.Color = color;
+                discountValue.TextSize = page.DiscountValue.TextSize;
 
-            //    paymentSummaryTitle.TextSize = page.PaymentSummaryTitle.TextSize;
+                canvas.DrawText(page.DiscountValue.Title, page.DiscountValue.Left, page.DiscountValue.Top, discountValue);
+            }
 
-            //    canvas.DrawText(page.PaymentSummaryTitle.Title, page.PaymentSummaryTitle.Left, page.PaymentSummaryTitle.Top, paymentSummaryTitle);
-            //}
+            using (SKPaint saleTotalTitle = new SKPaint())
+            {
+                SKColor.TryParse(page.SaleTotalTitle.Color, out SKColor color);
 
-            //foreach (var paymentTransaction in page.PaymentTransactions)
-            //{
-            //    using (SKPaint paymentTransactionTitle = new SKPaint())
-            //    {
-            //        SKColor.TryParse(paymentTransaction.Title.Color, out SKColor color);
+                saleTotalTitle.Color = color;
 
-            //        paymentTransactionTitle.Color = color;
+                saleTotalTitle.TextSize = page.SaleTotalTitle.TextSize;
 
-            //        paymentTransactionTitle.TextSize = paymentTransaction.Title.TextSize;
+                canvas.DrawText(page.SaleTotalTitle.Title, page.SaleTotalTitle.Left, page.SaleTotalTitle.Top, saleTotalTitle);
+            }
 
-            //        canvas.DrawText(paymentTransaction.Title.Title, paymentTransaction.Title.Left, paymentTransaction.Title.Top, paymentTransactionTitle);
-            //    }
+            using (SKPaint saleValue = new SKPaint())
+            {
+                SKColor.TryParse(page.SaleValue.Color, out SKColor color);
 
-            //    using (SKPaint paymentTransactionValue = new SKPaint())
-            //    {
-            //        SKColor.TryParse(paymentTransaction.Value.Color, out SKColor color);
+                saleValue.Color = color;
 
-            //        paymentTransactionValue.Color = color;
+                saleValue.TextSize = page.SaleValue.TextSize;
 
-            //        paymentTransactionValue.TextSize = paymentTransaction.Value.TextSize;
+                canvas.DrawText(page.SaleValue.Title, page.SaleValue.Left, page.SaleValue.Top, saleValue);
+            }
 
-            //        canvas.DrawText(paymentTransaction.Value.Title, paymentTransaction.Value.Left, paymentTransaction.Value.Top, paymentTransactionValue);
-            //    }
-            //}
+            using (SKPaint pricingDivider1 = new SKPaint())
+            {
+                SKColor.TryParse(page.PricingDivider1.Color, out SKColor color);
 
-            ////divider
+                pricingDivider1.Color = color;
 
-            //using (SKPaint changeTitle = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.ChangeTitle.Color, out SKColor color);
+                var pointA = new SKPoint(page.PricingDivider1.Left, page.PricingDivider1.Top);
+                var pointB = new SKPoint(page.PricingDivider1.Left + page.PricingDivider1.Width, page.PricingDivider1.Top);
 
-            //    changeTitle.Color = color;
+                canvas.DrawLine(pointA, pointB, pricingDivider1);
+            }
 
-            //    changeTitle.TextSize = page.ChangeTitle.TextSize;
+            using (SKPaint pricingDivider2 = new SKPaint())
+            {
+                SKColor.TryParse(page.PricingDivider2.Color, out SKColor color);
 
-            //    canvas.DrawText(page.ChangeTitle.Title, page.ChangeTitle.Left, page.ChangeTitle.Top, changeTitle);
-            //}
+                pricingDivider2.Color = color;
 
-            //using (SKPaint changeValue = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.ChangeValue.Color, out SKColor color);
+                var pointA = new SKPoint(page.PricingDivider2.Left, page.PricingDivider2.Top);
+                var pointB = new SKPoint(page.PricingDivider2.Left + page.PricingDivider2.Width, page.PricingDivider2.Top);
 
-            //    changeValue.Color = color;
+                canvas.DrawLine(pointA, pointB, pricingDivider2);
+            }
 
-            //    changeValue.TextSize = page.ChangeValue.TextSize;
+            using (SKPaint paymentSummaryTitle = new SKPaint())
+            {
+                SKColor.TryParse(page.PaymentSummaryTitle.Color, out SKColor color);
 
-            //    canvas.DrawText(page.ChangeValue.Title, page.ChangeValue.Left, page.ChangeValue.Top, changeValue);
-            //}
+                paymentSummaryTitle.Color = color;
 
-            ////divider
+                paymentSummaryTitle.TextSize = page.PaymentSummaryTitle.TextSize;
 
-            //using (SKPaint locationName = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.LocationName.Color, out SKColor color);
+                paymentSummaryTitle.FakeBoldText = true;
 
-            //    locationName.Color = color;
+                canvas.DrawText(page.PaymentSummaryTitle.Title, page.PaymentSummaryTitle.Left, page.PaymentSummaryTitle.Top, paymentSummaryTitle);
+            }
 
-            //    locationName.TextSize = page.LocationName.TextSize;
+            foreach (var paymentTransaction in page.PaymentTransactions)
+            {
+                using (SKPaint paymentTransactionTitle = new SKPaint())
+                {
+                    SKColor.TryParse(paymentTransaction.Title.Color, out SKColor color);
 
-            //    canvas.DrawText(page.LocationName.Title, page.LocationName.Left, page.LocationName.Top, locationName);
-            //}
+                    paymentTransactionTitle.Color = color;
 
-            //using (SKPaint locationPhoneNumber = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.LocationPhoneNumber.Color, out SKColor color);
+                    paymentTransactionTitle.TextSize = paymentTransaction.Title.TextSize;
 
-            //    locationPhoneNumber.Color = color;
+                    canvas.DrawText(paymentTransaction.Title.Title, paymentTransaction.Title.Left, paymentTransaction.Title.Top, paymentTransactionTitle);
+                }
 
-            //    locationPhoneNumber.TextSize = page.LocationPhoneNumber.TextSize;
+                using (SKPaint paymentTransactionValue = new SKPaint())
+                {
+                    SKColor.TryParse(paymentTransaction.Value.Color, out SKColor color);
 
-            //    canvas.DrawText(page.LocationPhoneNumber.Title, page.LocationPhoneNumber.Left, page.LocationPhoneNumber.Top, locationPhoneNumber);
-            //}
+                    paymentTransactionValue.Color = color;
 
-            //using (SKPaint thanksTitle = new SKPaint())
-            //{
-            //    SKColor.TryParse(page.ThanksTitle.Color, out SKColor color);
+                    paymentTransactionValue.TextSize = paymentTransaction.Value.TextSize;
 
-            //    thanksTitle.Color = color;
+                    canvas.DrawText(paymentTransaction.Value.Title, paymentTransaction.Value.Left, paymentTransaction.Value.Top, paymentTransactionValue);
+                }
+            }
 
-            //    thanksTitle.TextSize = page.ThanksTitle.TextSize;
+            using (SKPaint paymentDivider = new SKPaint())
+            {
+                SKColor.TryParse(page.PaymentDivider.Color, out SKColor color);
 
-            //    canvas.DrawText(page.ThanksTitle.Title, page.ThanksTitle.Left, page.ThanksTitle.Top, thanksTitle);
-            //}
+                paymentDivider.Color = color;
 
-            //var barcodeWriter = new ZXing.SkiaSharp.BarcodeWriter()
-            //{
-            //    Format = BarcodeFormat.CODE_128,
+                var pointA = new SKPoint(page.PaymentDivider.Left, page.PaymentDivider.Top);
+                var pointB = new SKPoint(page.PaymentDivider.Left + page.PaymentDivider.Width, page.PaymentDivider.Top);
 
-            //    Options = new ZXing.Common.EncodingOptions
-            //    {
-            //        Height = page.Barcode.HeightInt,
-            //        Width = page.Barcode.WidthInt,
-            //    },
-            //};
+                canvas.DrawLine(pointA, pointB, paymentDivider);
+            }
 
-            //SKBitmap bitmap = barcodeWriter.Write(page.Barcode.Title);
+            using (SKPaint changeTitle = new SKPaint())
+            {
+                SKColor.TryParse(page.ChangeTitle.Color, out SKColor color);
 
-            //canvas.DrawBitmap(bitmap, new SKPoint { X = page.Barcode.Left, Y = page.Barcode.Top });
+                changeTitle.Color = color;
+
+                changeTitle.TextSize = page.ChangeTitle.TextSize;
+
+                canvas.DrawText(page.ChangeTitle.Title, page.ChangeTitle.Left, page.ChangeTitle.Top, changeTitle);
+            }
+
+            using (SKPaint changeValue = new SKPaint())
+            {
+                SKColor.TryParse(page.ChangeValue.Color, out SKColor color);
+
+                changeValue.Color = color;
+
+                changeValue.TextSize = page.ChangeValue.TextSize;
+
+                canvas.DrawText(page.ChangeValue.Title, page.ChangeValue.Left, page.ChangeValue.Top, changeValue);
+            }
+
+            using (SKPaint changeDivider = new SKPaint())
+            {
+                SKColor.TryParse(page.ChangeDivider.Color, out SKColor color);
+
+                changeDivider.Color = color;
+
+                var pointA = new SKPoint(page.ChangeDivider.Left, page.ChangeDivider.Top);
+                var pointB = new SKPoint(page.ChangeDivider.Left + page.ChangeDivider.Width, page.ChangeDivider.Top);
+
+                canvas.DrawLine(pointA, pointB, changeDivider);
+            }
+
+            using (SKPaint locationName = new SKPaint())
+            {
+                SKColor.TryParse(page.LocationName.Color, out SKColor color);
+
+                locationName.Color = color;
+
+                locationName.TextSize = page.LocationName.TextSize;
+
+                canvas.DrawText(page.LocationName.Title, page.LocationName.Left, page.LocationName.Top, locationName);
+            }
+
+            using (SKPaint locationPhoneNumber = new SKPaint())
+            {
+                SKColor.TryParse(page.LocationPhoneNumber.Color, out SKColor color);
+
+                locationPhoneNumber.Color = color;
+
+                locationPhoneNumber.TextSize = page.LocationPhoneNumber.TextSize;
+
+                canvas.DrawText(page.LocationPhoneNumber.Title, page.LocationPhoneNumber.Left, page.LocationPhoneNumber.Top, locationPhoneNumber);
+            }
+
+            using (SKPaint thanksTitle = new SKPaint())
+            {
+                SKColor.TryParse(page.ThanksTitle.Color, out SKColor color);
+
+                thanksTitle.Color = color;
+
+                thanksTitle.TextSize = page.ThanksTitle.TextSize;
+
+                canvas.DrawText(page.ThanksTitle.Title, page.ThanksTitle.Left, page.ThanksTitle.Top, thanksTitle);
+            }
+
+            var barcodeWriter = new ZXing.SkiaSharp.BarcodeWriter()
+            {
+                Format = BarcodeFormat.CODE_128,
+
+                Options = new ZXing.Common.EncodingOptions
+                {
+                    Height = page.Barcode.HeightInt,
+                    Width = page.Barcode.WidthInt,
+                },
+            };
+
+            SKBitmap bitmap = barcodeWriter.Write(page.Barcode.Title);
+
+            canvas.DrawBitmap(bitmap, new SKPoint { X = page.Barcode.Left, Y = page.Barcode.Top });
         }
     }
 }
