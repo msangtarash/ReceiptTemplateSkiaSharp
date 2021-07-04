@@ -67,12 +67,15 @@ namespace ReceiptTemplateSkiaSharp
             receipt.CustomerTitle.Left = _layoutTemplate.CustomerTitle.Left + _layoutTemplate.LeftMargin;
             currentTopSpace = receipt.CustomerTitle.Top;
 
-            receipt.CustomerAddress.Color = _layoutTemplate.CustomerAddress.Color;
-            receipt.CustomerAddress.TextSize = _layoutTemplate.CustomerAddress.TextSize;
-            receipt.CustomerAddress.Height = CalculateTextHeight(receipt.CustomerAddress.TextSize, receipt.CustomerAddress.Title);
-            receipt.CustomerAddress.Top = currentTopSpace + _layoutTemplate.CustomerAddress.TopPadding + receipt.CustomerAddress.Height;
-            receipt.CustomerAddress.Left = _layoutTemplate.CustomerAddress.Left + _layoutTemplate.LeftMargin;
-            currentTopSpace = receipt.CustomerAddress.Top;
+            if (string.IsNullOrEmpty(receipt.CustomerAddress.Title) is false)
+            {
+                receipt.CustomerAddress.Color = _layoutTemplate.CustomerAddress.Color;
+                receipt.CustomerAddress.TextSize = _layoutTemplate.CustomerAddress.TextSize;
+                receipt.CustomerAddress.Height = CalculateTextHeight(receipt.CustomerAddress.TextSize, receipt.CustomerAddress.Title);
+                receipt.CustomerAddress.Top = currentTopSpace + _layoutTemplate.CustomerAddress.TopPadding + receipt.CustomerAddress.Height;
+                receipt.CustomerAddress.Left = _layoutTemplate.CustomerAddress.Left + _layoutTemplate.LeftMargin;
+                currentTopSpace = receipt.CustomerAddress.Top;
+            }
 
             receipt.CustomerName.Color = _layoutTemplate.CustomerName.Color;
             receipt.CustomerName.TextSize = _layoutTemplate.CustomerName.TextSize;
@@ -81,12 +84,15 @@ namespace ReceiptTemplateSkiaSharp
             receipt.CustomerName.Left = _layoutTemplate.CustomerName.Left + _layoutTemplate.LeftMargin;
             currentTopSpace = receipt.CustomerName.Top;
 
-            receipt.CustomerPhoneNumber.Color = _layoutTemplate.CustomerPhoneNumber.Color;
-            receipt.CustomerPhoneNumber.TextSize = _layoutTemplate.CustomerPhoneNumber.TextSize;
-            receipt.CustomerPhoneNumber.Height = CalculateTextHeight(receipt.CustomerPhoneNumber.TextSize, receipt.CustomerPhoneNumber.Title);
-            receipt.CustomerPhoneNumber.Top = currentTopSpace + _layoutTemplate.CustomerPhoneNumber.TopPadding + receipt.CustomerPhoneNumber.Height;
-            receipt.CustomerPhoneNumber.Left = _layoutTemplate.CustomerPhoneNumber.Left + _layoutTemplate.LeftMargin;
-            currentTopSpace = receipt.CustomerPhoneNumber.Top;
+            if (string.IsNullOrEmpty(receipt.CustomerPhoneNumber.Title) is false)
+            {
+                receipt.CustomerPhoneNumber.Color = _layoutTemplate.CustomerPhoneNumber.Color;
+                receipt.CustomerPhoneNumber.TextSize = _layoutTemplate.CustomerPhoneNumber.TextSize;
+                receipt.CustomerPhoneNumber.Height = CalculateTextHeight(receipt.CustomerPhoneNumber.TextSize, receipt.CustomerPhoneNumber.Title);
+                receipt.CustomerPhoneNumber.Top = currentTopSpace + _layoutTemplate.CustomerPhoneNumber.TopPadding + receipt.CustomerPhoneNumber.Height;
+                receipt.CustomerPhoneNumber.Left = _layoutTemplate.CustomerPhoneNumber.Left + _layoutTemplate.LeftMargin;
+                currentTopSpace = receipt.CustomerPhoneNumber.Top;
+            }
 
             receipt.CustomerDivider.Color = _layoutTemplate.CustomerDivider.Color;
             receipt.CustomerDivider.Top = currentTopSpace + _layoutTemplate.CustomerDivider.TopPadding;
@@ -136,68 +142,81 @@ namespace ReceiptTemplateSkiaSharp
                 orderItem.TotalPrice.Height = CalculateTextHeight(orderItem.TotalPrice.TextSize, orderItem.TotalPrice.Title);
                 orderItem.TotalPrice.Top = currentTopSpace + _layoutTemplate.OrderItemTotalPrice.TopPadding + orderItem.TotalPrice.Height;
                 orderItem.TotalPrice.Left = _layoutTemplate.OrderItemTotalPrice.Left + _layoutTemplate.LeftMargin;
-                orderItem.TotalPrice.Left = CalculateRightAlignTextX(orderItem.TotalPrice.TextSize , orderItem.TotalPrice.Title , orderItem.TotalPrice.Left , orderItem.TotalPrice.Width);
+                orderItem.TotalPrice.Left = CalculateRightAlignTextX(orderItem.TotalPrice.TextSize, orderItem.TotalPrice.Title, orderItem.TotalPrice.Left, orderItem.TotalPrice.Width);
                 currentTopSpace = orderItem.TotalPrice.Top;
 
-                orderItem.DiscountTitle.Color = _layoutTemplate.OrderItemDiscountTitle.Color;
-                orderItem.DiscountTitle.TextSize = _layoutTemplate.OrderItemDiscountTitle.TextSize;
-                orderItem.DiscountTitle.Width = _layoutTemplate.OrderItemDiscountTitle.Width;
-                orderItem.DiscountTitle.Height = CalculateTextHeight(orderItem.DiscountTitle.TextSize, orderItem.DiscountTitle.Title);
-                orderItem.DiscountTitle.Top = currentTopSpace + _layoutTemplate.OrderItemDiscountTitle.TopPadding + orderItem.DiscountTitle.Height;
-                orderItem.DiscountTitle.Left = _layoutTemplate.OrderItemDiscountTitle.Left + _layoutTemplate.LeftMargin;
+                if (string.IsNullOrEmpty(orderItem.DiscountValue.Title) is false)
+                {
+                    orderItem.DiscountTitle.Color = _layoutTemplate.OrderItemDiscountTitle.Color;
+                    orderItem.DiscountTitle.TextSize = _layoutTemplate.OrderItemDiscountTitle.TextSize;
+                    orderItem.DiscountTitle.Width = _layoutTemplate.OrderItemDiscountTitle.Width;
+                    orderItem.DiscountTitle.Height = CalculateTextHeight(orderItem.DiscountTitle.TextSize, orderItem.DiscountTitle.Title);
+                    orderItem.DiscountTitle.Top = currentTopSpace + _layoutTemplate.OrderItemDiscountTitle.TopPadding + orderItem.DiscountTitle.Height;
+                    orderItem.DiscountTitle.Left = _layoutTemplate.OrderItemDiscountTitle.Left + _layoutTemplate.LeftMargin;
 
-                orderItem.DiscountValue.Color = _layoutTemplate.OrderItemDiscountValue.Color;
-                orderItem.DiscountValue.TextSize = _layoutTemplate.OrderItemDiscountValue.TextSize;
-                orderItem.DiscountValue.Width = _layoutTemplate.OrderItemDiscountValue.Width;
-                orderItem.DiscountValue.Height = CalculateTextHeight(orderItem.DiscountValue.TextSize, orderItem.DiscountValue.Title);
-                orderItem.DiscountValue.Top = currentTopSpace + _layoutTemplate.OrderItemDiscountValue.TopPadding + orderItem.DiscountValue.Height;
-                orderItem.DiscountValue.Left = _layoutTemplate.OrderItemDiscountValue.Left + _layoutTemplate.LeftMargin;
 
-                orderItem.MainPrice.Color = _layoutTemplate.OrderItemMainPrice.Color;
-                orderItem.MainPrice.TextSize = _layoutTemplate.OrderItemMainPrice.TextSize;
-                orderItem.MainPrice.Width = _layoutTemplate.OrderItemMainPrice.Width;
-                orderItem.MainPrice.Height = CalculateTextHeight(orderItem.MainPrice.TextSize, orderItem.MainPrice.Title);
-                orderItem.MainPrice.Top = currentTopSpace + _layoutTemplate.OrderItemMainPrice.TopPadding + orderItem.MainPrice.Height;
-                orderItem.MainPrice.Left = _layoutTemplate.OrderItemMainPrice.Left + _layoutTemplate.LeftMargin;
-                orderItem.MainPrice.Left = CalculateRightAlignTextX(orderItem.MainPrice.TextSize, orderItem.MainPrice.Title, orderItem.MainPrice.Left, orderItem.MainPrice.Width);
-                currentTopSpace = orderItem.MainPrice.Top;
+                    orderItem.DiscountValue.Color = _layoutTemplate.OrderItemDiscountValue.Color;
+                    orderItem.DiscountValue.TextSize = _layoutTemplate.OrderItemDiscountValue.TextSize;
+                    orderItem.DiscountValue.Width = _layoutTemplate.OrderItemDiscountValue.Width;
+                    orderItem.DiscountValue.Height = CalculateTextHeight(orderItem.DiscountValue.TextSize, orderItem.DiscountValue.Title);
+                    orderItem.DiscountValue.Top = currentTopSpace + _layoutTemplate.OrderItemDiscountValue.TopPadding + orderItem.DiscountValue.Height;
+                    orderItem.DiscountValue.Left = _layoutTemplate.OrderItemDiscountValue.Left + _layoutTemplate.LeftMargin;
 
-                orderItem.Values.Color = _layoutTemplate.OrderItemValues.Color;
-                orderItem.Values.TextSize = _layoutTemplate.OrderItemValues.TextSize;
-                orderItem.Values.Width = _layoutTemplate.OrderItemValues.Width;
-                orderItem.Values.Height = CalculateTextHeight(orderItem.Values.TextSize, orderItem.Values.Title);
-                orderItem.Values.Top = currentTopSpace + _layoutTemplate.OrderItemValues.TopPadding + orderItem.Values.Height;
-                orderItem.Values.Left = _layoutTemplate.OrderItemValues.Left + _layoutTemplate.LeftMargin;
-                currentTopSpace = orderItem.Values.Top;
+                    orderItem.MainPrice.Color = _layoutTemplate.OrderItemMainPrice.Color;
+                    orderItem.MainPrice.TextSize = _layoutTemplate.OrderItemMainPrice.TextSize;
+                    orderItem.MainPrice.Width = _layoutTemplate.OrderItemMainPrice.Width;
+                    orderItem.MainPrice.Height = CalculateTextHeight(orderItem.MainPrice.TextSize, orderItem.MainPrice.Title);
+                    orderItem.MainPrice.Top = currentTopSpace + _layoutTemplate.OrderItemMainPrice.TopPadding + orderItem.MainPrice.Height;
+                    orderItem.MainPrice.Left = _layoutTemplate.OrderItemMainPrice.Left + _layoutTemplate.LeftMargin;
+                    orderItem.MainPrice.Left = CalculateRightAlignTextX(orderItem.MainPrice.TextSize, orderItem.MainPrice.Title, orderItem.MainPrice.Left, orderItem.MainPrice.Width);
+                    currentTopSpace = orderItem.MainPrice.Top;
+                }
 
-                orderItem.NoteTitle.Color = _layoutTemplate.OrderItemNoteTitle.Color;
-                orderItem.NoteTitle.TextSize = _layoutTemplate.OrderItemNoteTitle.TextSize;
-                orderItem.NoteTitle.Width = _layoutTemplate.OrderItemNoteTitle.Width;
-                orderItem.NoteTitle.Height = CalculateTextHeight(orderItem.NoteTitle.TextSize, orderItem.NoteTitle.Title);
-                orderItem.NoteTitle.Top = currentTopSpace + _layoutTemplate.OrderItemNoteTitle.TopPadding + orderItem.NoteTitle.Height;
-                orderItem.NoteTitle.Left = _layoutTemplate.OrderItemNoteTitle.Left + _layoutTemplate.LeftMargin;
+                if (string.IsNullOrEmpty(orderItem.Values.Title) is false)
+                {
+                    orderItem.Values.Color = _layoutTemplate.OrderItemValues.Color;
+                    orderItem.Values.TextSize = _layoutTemplate.OrderItemValues.TextSize;
+                    orderItem.Values.Width = _layoutTemplate.OrderItemValues.Width;
+                    orderItem.Values.Height = CalculateTextHeight(orderItem.Values.TextSize, orderItem.Values.Title);
+                    orderItem.Values.Top = currentTopSpace + _layoutTemplate.OrderItemValues.TopPadding + orderItem.Values.Height;
+                    orderItem.Values.Left = _layoutTemplate.OrderItemValues.Left + _layoutTemplate.LeftMargin;
+                    currentTopSpace = orderItem.Values.Top;
+                }
 
-                orderItem.NoteValue.Color = _layoutTemplate.OrderItemNoteValue.Color;
-                orderItem.NoteValue.TextSize = _layoutTemplate.OrderItemNoteValue.TextSize;
-                orderItem.NoteValue.Width = _layoutTemplate.OrderItemNoteValue.Width;
-                orderItem.NoteValue.Height = CalculateTextHeight(orderItem.NoteValue.TextSize, orderItem.NoteValue.Title);
-                orderItem.NoteValue.Top = currentTopSpace + _layoutTemplate.OrderItemNoteValue.TopPadding + orderItem.NoteValue.Height;
-                orderItem.NoteValue.Left = _layoutTemplate.OrderItemNoteValue.Left + _layoutTemplate.LeftMargin;
-                currentTopSpace = orderItem.NoteValue.Top;
+                if (string.IsNullOrEmpty(orderItem.NoteValue.Title) is false)
+                {
+                    orderItem.NoteTitle.Color = _layoutTemplate.OrderItemNoteTitle.Color;
+                    orderItem.NoteTitle.TextSize = _layoutTemplate.OrderItemNoteTitle.TextSize;
+                    orderItem.NoteTitle.Width = _layoutTemplate.OrderItemNoteTitle.Width;
+                    orderItem.NoteTitle.Height = CalculateTextHeight(orderItem.NoteTitle.TextSize, orderItem.NoteTitle.Title);
+                    orderItem.NoteTitle.Top = currentTopSpace + _layoutTemplate.OrderItemNoteTitle.TopPadding + orderItem.NoteTitle.Height;
+                    orderItem.NoteTitle.Left = _layoutTemplate.OrderItemNoteTitle.Left + _layoutTemplate.LeftMargin;
+
+                    orderItem.NoteValue.Color = _layoutTemplate.OrderItemNoteValue.Color;
+                    orderItem.NoteValue.TextSize = _layoutTemplate.OrderItemNoteValue.TextSize;
+                    orderItem.NoteValue.Width = _layoutTemplate.OrderItemNoteValue.Width;
+                    orderItem.NoteValue.Height = CalculateTextHeight(orderItem.NoteValue.TextSize, orderItem.NoteValue.Title);
+                    orderItem.NoteValue.Top = currentTopSpace + _layoutTemplate.OrderItemNoteValue.TopPadding + orderItem.NoteValue.Height;
+                    orderItem.NoteValue.Left = _layoutTemplate.OrderItemNoteValue.Left + _layoutTemplate.LeftMargin;
+                    currentTopSpace = orderItem.NoteValue.Top;
+                }
             }
 
-            receipt.OrderDivider.Color = _layoutTemplate.OrderDivider.Color;
-            receipt.OrderDivider.Top = currentTopSpace + _layoutTemplate.OrderDivider.TopPadding;
-            receipt.OrderDivider.Left = _layoutTemplate.OrderDivider.Left + _layoutTemplate.LeftMargin;
-            receipt.OrderDivider.Width = _layoutTemplate.OrderDivider.Width;
-            currentTopSpace = receipt.OrderDivider.Top;
+            if (string.IsNullOrEmpty(receipt.OrderNote.Title) is false)
+            {
+                receipt.OrderDivider.Color = _layoutTemplate.OrderDivider.Color;
+                receipt.OrderDivider.Top = currentTopSpace + _layoutTemplate.OrderDivider.TopPadding;
+                receipt.OrderDivider.Left = _layoutTemplate.OrderDivider.Left + _layoutTemplate.LeftMargin;
+                receipt.OrderDivider.Width = _layoutTemplate.OrderDivider.Width;
+                currentTopSpace = receipt.OrderDivider.Top;
 
-            receipt.OrderNote.Color = _layoutTemplate.OrderNote.Color;
-            receipt.OrderNote.TextSize = _layoutTemplate.OrderNote.TextSize;
-            receipt.OrderNote.Height = CalculateTextHeight(receipt.OrderNote.TextSize, receipt.OrderNote.Title);
-            receipt.OrderNote.Top = currentTopSpace + _layoutTemplate.OrderNote.TopPadding + receipt.OrderNote.Height;
-            receipt.OrderNote.Left = _layoutTemplate.OrderNote.Left + _layoutTemplate.LeftMargin;
-            currentTopSpace = receipt.OrderNote.Top;
+                receipt.OrderNote.Color = _layoutTemplate.OrderNote.Color;
+                receipt.OrderNote.TextSize = _layoutTemplate.OrderNote.TextSize;
+                receipt.OrderNote.Height = CalculateTextHeight(receipt.OrderNote.TextSize, receipt.OrderNote.Title);
+                receipt.OrderNote.Top = currentTopSpace + _layoutTemplate.OrderNote.TopPadding + receipt.OrderNote.Height;
+                receipt.OrderNote.Left = _layoutTemplate.OrderNote.Left + _layoutTemplate.LeftMargin;
+                currentTopSpace = receipt.OrderNote.Top;
+            }
 
             receipt.NoteDivider1.Color = _layoutTemplate.NoteDivider1.Color;
             receipt.NoteDivider1.Top = currentTopSpace + _layoutTemplate.NoteDivider1.TopPadding;
@@ -223,7 +242,7 @@ namespace ReceiptTemplateSkiaSharp
             receipt.SubtotalValue.Height = CalculateTextHeight(receipt.SubtotalValue.TextSize, receipt.SubtotalValue.Title);
             receipt.SubtotalValue.Top = currentTopSpace + _layoutTemplate.SubtotalValue.TopPadding + receipt.SubtotalValue.Height;
             receipt.SubtotalValue.Left = _layoutTemplate.SubtotalValue.Left + _layoutTemplate.LeftMargin;
-            receipt.SubtotalValue.Left = CalculateRightAlignTextX(receipt.SubtotalValue.TextSize , receipt.SubtotalValue.Title , receipt.SubtotalValue.Left , receipt.SubtotalValue.Width);
+            receipt.SubtotalValue.Left = CalculateRightAlignTextX(receipt.SubtotalValue.TextSize, receipt.SubtotalValue.Title, receipt.SubtotalValue.Left, receipt.SubtotalValue.Width);
             currentTopSpace = receipt.SubtotalValue.Top;
 
             receipt.TaxTitle.Color = _layoutTemplate.TaxTitle.Color;
@@ -366,7 +385,7 @@ namespace ReceiptTemplateSkiaSharp
             receipt.Barcode.TextSize = _layoutTemplate.Barcode.TextSize;
             receipt.Barcode.Width = _layoutTemplate.Barcode.Width;
             receipt.Barcode.Height = _layoutTemplate.Barcode.Height;
-            receipt.Barcode.Top = currentTopSpace + _layoutTemplate.Barcode.TopPadding ;
+            receipt.Barcode.Top = currentTopSpace + _layoutTemplate.Barcode.TopPadding;
             receipt.Barcode.Left = _layoutTemplate.Barcode.Left;
             currentTopSpace = receipt.Barcode.Top + receipt.Barcode.Height;
 
@@ -389,7 +408,7 @@ namespace ReceiptTemplateSkiaSharp
             }
         }
 
-        private float CalculateRightAlignTextX(float textSize, string str, float boxLeft ,float maxWidth)
+        private float CalculateRightAlignTextX(float textSize, string str, float boxLeft, float maxWidth)
         {
             using (SKPaint textPaint = new SKPaint())
             {

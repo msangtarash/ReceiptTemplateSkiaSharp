@@ -72,21 +72,25 @@ namespace ReceiptTemplateSkiaSharp
                         MainPrice = new LabelCoordinations{ Title = "350$"},
                         Values = new LabelCoordinations{ Title = "Red-Small"},
                         NoteTitle = new LabelCoordinations{ Title = "Note:"},
-                        NoteValue = new LabelCoordinations{ Title = "this is a note"},
+                        NoteValue = new LabelCoordinations{ Title = null},
                     },
 
-                    //new OrderItem
-                    //{
-                    //    Name = new LabelCoordinations{ Title = "T-shirt"},
-                    //    Quantity = new LabelCoordinations{ Title = "3"},
-                    //    TotalPrice = new LabelCoordinations{ Title = "250$"},
-                    //    NoteTitle = new LabelCoordinations{ Title = "Note:"},
-                    //    NoteValue = new LabelCoordinations{ Title = "this is a note"},
-                    //}
+                    new OrderItem
+                    {
+                        Name = new LabelCoordinations{ Title = "T-shirt"},
+                        Quantity = new LabelCoordinations{ Title = "3"},
+                        TotalPrice = new LabelCoordinations{ Title = "250$"},
+                        DiscountTitle = new LabelCoordinations{ Title = "Dis:"},
+                        DiscountValue = new LabelCoordinations{ Title = null},
+                        MainPrice = new LabelCoordinations{ Title = null},
+                        Values = new LabelCoordinations{ Title = null},
+                        NoteTitle = new LabelCoordinations{ Title = "Note:"},
+                        NoteValue = new LabelCoordinations{ Title = "this is a note"},
+                    }
                 },
                 OrderDivider = new LabelCoordinations { },
 
-                OrderNote = new LabelCoordinations { Title = "Note: This is an Order item Note." },
+                OrderNote = new LabelCoordinations { Title = null },
                 NoteDivider1 = new LabelCoordinations { },
                 NoteDivider2 = new LabelCoordinations { },
 
