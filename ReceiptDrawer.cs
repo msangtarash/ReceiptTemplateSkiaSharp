@@ -9,11 +9,11 @@ using ZXing;
 
 namespace ReceiptTemplateSkiaSharp
 {
-    public class LabelDrawer
+    public class ReceiptDrawer
     {
         private ReceiptPage _receiptPage;
 
-        public LabelDrawer(ReceiptPage receiptPage)
+        public ReceiptDrawer(ReceiptPage receiptPage)
         {
             _receiptPage = receiptPage;
         }

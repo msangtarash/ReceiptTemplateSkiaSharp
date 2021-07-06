@@ -7,15 +7,6 @@ namespace ReceiptTemplateSkiaSharp
 {
     public class TemplateProvider
     {
-        private readonly int _dpi;
-        private readonly float _toPixel;
-
-        public TemplateProvider(int dpi)
-        {
-            _dpi = dpi;
-            _toPixel = _dpi / 25.4f;
-        }
-
         public LayoutTemplate GetTemplate21()
         {
             return new LayoutTemplate

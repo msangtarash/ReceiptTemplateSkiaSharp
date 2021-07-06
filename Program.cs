@@ -11,7 +11,7 @@ namespace ReceiptTemplateSkiaSharp
         {
             ReceiptPage receiptModels = GetListOfLayoutModelsToPrint();
 
-            var template = new TemplateProvider(_dpi);
+            var template = new TemplateProvider();
 
             var receiptTemlate = template.GetTemplate21();
 
@@ -19,7 +19,7 @@ namespace ReceiptTemplateSkiaSharp
 
             var pages = calculator.Calculate(receiptModels);
 
-            LabelDrawer labelDrawer = new LabelDrawer(pages);
+            ReceiptDrawer labelDrawer = new ReceiptDrawer(pages);
 
             labelDrawer.CreateImage();
 
