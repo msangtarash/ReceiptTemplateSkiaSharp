@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Topten.RichTextKit;
 using ZXing;
 
 namespace ReceiptTemplateSkiaSharp
@@ -42,51 +43,56 @@ namespace ReceiptTemplateSkiaSharp
         {
             canvas.Clear(SKColors.White);
 
-            using (SKPaint storeName = new SKPaint())
             {
+                RichString storeName = new RichString()
+                                            .Alignment(TextAlignment.Center)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.StoreName.TextSize)
+                                            .FontWeight(700)
+                                            .Add(page.StoreName.Title);
+
                 SKColor.TryParse(page.StoreName.Color, out SKColor color);
 
-                storeName.Color = color;
-
-                storeName.TextSize = page.StoreName.TextSize;
-
-                storeName.FakeBoldText = true;
-
-                canvas.DrawText(page.StoreName.Title, page.StoreName.Left, page.StoreName.Top, storeName);
+                storeName.MaxWidth = page.StoreName.Width;
+                storeName.MaxHeight = page.StoreName.Height;
+                storeName.TextColor(color);
+                storeName.Paint(canvas, new SKPoint(page.StoreName.Left, page.StoreName.Top));
             }
 
-            using (SKPaint storeNameDivider = new SKPaint())
+            DrowDashLine(canvas, page.StoreNameDivider.Color, page.StoreNameDivider.Left, page.StoreNameDivider.Top, page.StoreNameDivider.Width);
+
             {
-                SKColor.TryParse(page.StoreNameDivider.Color, out SKColor color);
+                RichString dateTime = new RichString()
+                                            .Alignment(TextAlignment.Left)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.Date.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.Date.Title);
 
-                storeNameDivider.Color = color;
-                var pointA = new SKPoint(page.StoreNameDivider.Left, page.StoreNameDivider.Top);
-                var pointB = new SKPoint(page.StoreNameDivider.Left + page.StoreNameDivider.Width, page.StoreNameDivider.Top);
-
-                canvas.DrawLine(pointA, pointB, storeNameDivider);
-            }
-
-            using (SKPaint dateTime = new SKPaint())
-            {
                 SKColor.TryParse(page.Date.Color, out SKColor color);
 
-                dateTime.Color = color;
-
-                dateTime.TextSize = page.Date.TextSize;
-
-                canvas.DrawText(page.Date.Title, page.Date.Left, page.Date.Top, dateTime);
+                dateTime.MaxWidth = page.Date.Width;
+                dateTime.MaxHeight = page.Date.Height;
+                dateTime.TextColor(color);
+                dateTime.Paint(canvas, new SKPoint(page.Date.Left, page.Date.Top));
             }
 
-            using (SKPaint registerName = new SKPaint())
             {
+                RichString registerName = new RichString()
+                                            .Alignment(TextAlignment.Left)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.RegisterName.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.RegisterName.Title);
+
                 SKColor.TryParse(page.RegisterName.Color, out SKColor color);
 
-                registerName.Color = color;
-
-                registerName.TextSize = page.RegisterName.TextSize;
-
-                canvas.DrawText(page.RegisterName.Title, page.RegisterName.Left, page.RegisterName.Top, registerName);
+                registerName.MaxWidth = page.RegisterName.Width;
+                registerName.MaxHeight = page.RegisterName.Height;
+                registerName.TextColor(color);
+                registerName.Paint(canvas, new SKPoint(page.RegisterName.Left, page.RegisterName.Top));
             }
+
 
             using (SKPaint staffName = new SKPaint())
             {
@@ -99,17 +105,7 @@ namespace ReceiptTemplateSkiaSharp
                 canvas.DrawText(page.StaffName.Title, page.StaffName.Left, page.StaffName.Top, staffName);
             }
 
-            using (SKPaint headerDivider = new SKPaint())
-            {
-                SKColor.TryParse(page.HeaderDivider.Color, out SKColor color);
-
-                headerDivider.Color = color;
-
-                var pointA = new SKPoint(page.HeaderDivider.Left, page.HeaderDivider.Top);
-                var pointB = new SKPoint(page.HeaderDivider.Left + page.HeaderDivider.Width, page.HeaderDivider.Top);
-
-                canvas.DrawLine(pointA, pointB, headerDivider);
-            }
+            DrowDashLine(canvas, page.HeaderDivider.Color, page.HeaderDivider.Left, page.HeaderDivider.Top, page.HeaderDivider.Width);
 
             using (SKPaint customerTitle = new SKPaint())
             {
@@ -163,17 +159,7 @@ namespace ReceiptTemplateSkiaSharp
                 }
             }
 
-            using (SKPaint customerDivider = new SKPaint())
-            {
-                SKColor.TryParse(page.CustomerDivider.Color, out SKColor color);
-
-                customerDivider.Color = color;
-
-                var pointA = new SKPoint(page.CustomerDivider.Left, page.CustomerDivider.Top);
-                var pointB = new SKPoint(page.CustomerDivider.Left + page.CustomerDivider.Width, page.CustomerDivider.Top);
-
-                canvas.DrawLine(pointA, pointB, customerDivider);
-            }
+            DrowDashLine(canvas, page.CustomerDivider.Color, page.CustomerDivider.Left, page.CustomerDivider.Top, page.CustomerDivider.Width);
 
             using (SKPaint orderDescriptionTitle = new SKPaint())
             {
@@ -327,17 +313,7 @@ namespace ReceiptTemplateSkiaSharp
 
             if (string.IsNullOrEmpty(page.OrderNote.Title) is false)
             {
-                using (SKPaint orderDivider = new SKPaint())
-                {
-                    SKColor.TryParse(page.OrderDivider.Color, out SKColor color);
-
-                    orderDivider.Color = color;
-
-                    var pointA = new SKPoint(page.OrderDivider.Left, page.OrderDivider.Top);
-                    var pointB = new SKPoint(page.OrderDivider.Left + page.OrderDivider.Width, page.OrderDivider.Top);
-
-                    canvas.DrawLine(pointA, pointB, orderDivider);
-                }
+                DrowDashLine(canvas, page.OrderDivider.Color, page.OrderDivider.Left, page.OrderDivider.Top, page.OrderDivider.Width);
 
                 using (SKPaint orderNote = new SKPaint())
                 {
@@ -351,29 +327,9 @@ namespace ReceiptTemplateSkiaSharp
                 }
             }
 
-            using (SKPaint noteDivider1 = new SKPaint())
-            {
-                SKColor.TryParse(page.NoteDivider1.Color, out SKColor color);
+            DrowDashLine(canvas, page.NoteDivider1.Color, page.NoteDivider1.Left, page.NoteDivider1.Top, page.NoteDivider1.Width);
+            DrowDashLine(canvas, page.NoteDivider2.Color, page.NoteDivider2.Left, page.NoteDivider2.Top, page.NoteDivider2.Width);
 
-                noteDivider1.Color = color;
-
-                var pointA = new SKPoint(page.NoteDivider1.Left, page.NoteDivider1.Top);
-                var pointB = new SKPoint(page.NoteDivider1.Left + page.NoteDivider1.Width, page.NoteDivider1.Top);
-
-                canvas.DrawLine(pointA, pointB, noteDivider1);
-            }
-
-            using (SKPaint noteDivider2 = new SKPaint())
-            {
-                SKColor.TryParse(page.NoteDivider2.Color, out SKColor color);
-
-                noteDivider2.Color = color;
-
-                var pointA = new SKPoint(page.NoteDivider2.Left, page.NoteDivider2.Top);
-                var pointB = new SKPoint(page.NoteDivider2.Left + page.NoteDivider2.Width, page.NoteDivider2.Top);
-
-                canvas.DrawLine(pointA, pointB, noteDivider2);
-            }
 
             using (SKPaint subtotalTitle = new SKPaint())
             {
@@ -463,29 +419,9 @@ namespace ReceiptTemplateSkiaSharp
                 canvas.DrawText(page.SaleValue.Title, page.SaleValue.Left, page.SaleValue.Top, saleValue);
             }
 
-            using (SKPaint pricingDivider1 = new SKPaint())
-            {
-                SKColor.TryParse(page.PricingDivider1.Color, out SKColor color);
-
-                pricingDivider1.Color = color;
-
-                var pointA = new SKPoint(page.PricingDivider1.Left, page.PricingDivider1.Top);
-                var pointB = new SKPoint(page.PricingDivider1.Left + page.PricingDivider1.Width, page.PricingDivider1.Top);
-
-                canvas.DrawLine(pointA, pointB, pricingDivider1);
-            }
-
-            using (SKPaint pricingDivider2 = new SKPaint())
-            {
-                SKColor.TryParse(page.PricingDivider2.Color, out SKColor color);
-
-                pricingDivider2.Color = color;
-
-                var pointA = new SKPoint(page.PricingDivider2.Left, page.PricingDivider2.Top);
-                var pointB = new SKPoint(page.PricingDivider2.Left + page.PricingDivider2.Width, page.PricingDivider2.Top);
-
-                canvas.DrawLine(pointA, pointB, pricingDivider2);
-            }
+            DrowDashLine(canvas, page.PricingDivider1.Color, page.PricingDivider1.Left, page.PricingDivider1.Top, page.PricingDivider1.Width);
+            DrowDashLine(canvas, page.PricingDivider2.Color, page.PricingDivider2.Left, page.PricingDivider2.Top, page.PricingDivider2.Width);
+           
 
             using (SKPaint paymentSummaryTitle = new SKPaint())
             {
@@ -525,17 +461,7 @@ namespace ReceiptTemplateSkiaSharp
                 }
             }
 
-            using (SKPaint paymentDivider = new SKPaint())
-            {
-                SKColor.TryParse(page.PaymentDivider.Color, out SKColor color);
-
-                paymentDivider.Color = color;
-
-                var pointA = new SKPoint(page.PaymentDivider.Left, page.PaymentDivider.Top);
-                var pointB = new SKPoint(page.PaymentDivider.Left + page.PaymentDivider.Width, page.PaymentDivider.Top);
-
-                canvas.DrawLine(pointA, pointB, paymentDivider);
-            }
+            DrowLine(canvas, page.PaymentDivider.Color, page.PaymentDivider.Left, page.PaymentDivider.Top, page.PaymentDivider.Width);
 
             using (SKPaint changeTitle = new SKPaint())
             {
@@ -559,17 +485,7 @@ namespace ReceiptTemplateSkiaSharp
                 canvas.DrawText(page.ChangeValue.Title, page.ChangeValue.Left, page.ChangeValue.Top, changeValue);
             }
 
-            using (SKPaint changeDivider = new SKPaint())
-            {
-                SKColor.TryParse(page.ChangeDivider.Color, out SKColor color);
-
-                changeDivider.Color = color;
-
-                var pointA = new SKPoint(page.ChangeDivider.Left, page.ChangeDivider.Top);
-                var pointB = new SKPoint(page.ChangeDivider.Left + page.ChangeDivider.Width, page.ChangeDivider.Top);
-
-                canvas.DrawLine(pointA, pointB, changeDivider);
-            }
+            DrowDashLine(canvas, page.ChangeDivider.Color, page.ChangeDivider.Left, page.ChangeDivider.Top, page.ChangeDivider.Width);
 
             using (SKPaint locationName = new SKPaint())
             {
@@ -618,6 +534,41 @@ namespace ReceiptTemplateSkiaSharp
             SKBitmap bitmap = barcodeWriter.Write(page.Barcode.Title);
 
             canvas.DrawBitmap(bitmap, new SKPoint { X = page.Barcode.Left, Y = page.Barcode.Top });
+        }
+
+        private void DrowDashLine(SKCanvas canvas, string colorLine, float left, float top, float width)
+        {
+
+            using (SKPaint dashLine = new SKPaint())
+            {
+                SKColor.TryParse(colorLine, out SKColor color);
+
+                dashLine.Color = color;
+                dashLine.Style = SKPaintStyle.Stroke;
+                dashLine.IsAntialias = true;
+                dashLine.StrokeWidth = 0.5f;
+                dashLine.PathEffect = SKPathEffect.CreateDash(new[] { 3f, 2f }, 20);
+
+                var pointA = new SKPoint(left, top);
+                var pointB = new SKPoint(left + width, top);
+
+                canvas.DrawLine(pointA, pointB, dashLine);
+            }
+        }
+
+        private void DrowLine(SKCanvas canvas, string colorLine, float left, float top, float width)
+        {
+            using (SKPaint line = new SKPaint())
+            {
+                SKColor.TryParse(colorLine, out SKColor color);
+
+                line.Color = color;
+
+                var pointA = new SKPoint(left, top);
+                var pointB = new SKPoint(left + width, top);
+
+                canvas.DrawLine(pointA, pointB, line);
+            }
         }
     }
 }
