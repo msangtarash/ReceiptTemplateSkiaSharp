@@ -21,21 +21,21 @@ namespace ReceiptTemplateSkiaSharp
             return new LayoutTemplate
             {
                 PageWidth = 302,
-                LeftMargin = 24,
+                LeftPadding = 24,
 
                 StoreName = new Dimensions
                 {
                     Color = "#0F0F13",
                     TextSize = 22,
                     TopPadding = 39,
-                    Width = 230
+                    Width = 244
                 },
 
                 StoreNameDivider = new Dimensions
                 {
                     Color = "#0F0F13",
                     Left = 10,
-                    Width = 238,
+                    Width = 234,
                     TopPadding = 24
                 },
 
@@ -44,7 +44,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 16,
-                    Width = 230
+                    Width = 244
                 },
 
 
@@ -53,7 +53,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 6,
-                    Width = 230
+                    Width = 244
                 },
 
                 StaffName = new Dimensions
@@ -61,6 +61,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 6,
+                    Width = 244
                 },
 
                 HeaderDivider = new Dimensions
@@ -68,7 +69,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TopPadding = 16,
                     Left = 10,
-                    Width = 238,
+                    Width = 234,
                 },
 
                 CustomerTitle = new Dimensions
@@ -76,6 +77,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 16,
+                    Width = 244
                 },
 
                 CustomerAddress = new Dimensions
@@ -83,6 +85,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 6,
+                    Width = 244
                 },
 
                 CustomerName = new Dimensions
@@ -90,6 +93,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 6,
+                    Width = 244
                 },
 
                 CustomerPhoneNumber = new Dimensions
@@ -97,13 +101,14 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 6,
+                    Width = 244
                 },
 
                 CustomerDivider = new Dimensions
                 {
                     Color = "#0F0F13",
                     Left = 10,
-                    Width = 238,
+                    Width = 234,
                     TopPadding = 16
                 },
 
@@ -112,6 +117,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 16,
+                    Width = 120
                 },
 
                 OrderQuantityTitle = new Dimensions
@@ -119,7 +125,8 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 16,
-                    Left = 148,
+                    Left = 130,
+                    Width = 40
                 },
 
                 OrderTotalTitle = new Dimensions
@@ -127,14 +134,15 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 16,
-                    Left = 222,
+                    Left = 177,
+                    Width =77
                 },
 
                 OrderItemName = new Dimensions
                 {
                     Color = "#0F0F13",
                     TextSize = 14,
-                    TopPadding = 13,
+                    TopPadding = 9,
                     Width = 120
                 },
 
@@ -142,7 +150,7 @@ namespace ReceiptTemplateSkiaSharp
                 {
                     Color = "#0F0F13",
                     TextSize = 14,
-                    TopPadding = 13,
+                    TopPadding = 9,
                     Left = 130,
                     Width = 40
                 },
@@ -151,7 +159,7 @@ namespace ReceiptTemplateSkiaSharp
                 {
                     Color = "#0F0F13",
                     TextSize = 14,
-                    TopPadding = 13,
+                    TopPadding = 9,
                     Left = 177,
                     Width = 77
                 },
@@ -160,7 +168,7 @@ namespace ReceiptTemplateSkiaSharp
                 {
                     Color = "#0F0F13",
                     TextSize = 10,
-                    TopPadding = 6,
+                    TopPadding = 0,
                     Width = 30
                 },
 
@@ -168,7 +176,7 @@ namespace ReceiptTemplateSkiaSharp
                 {
                     Color = "#0F0F13",
                     TextSize = 10,
-                    TopPadding = 6,
+                    TopPadding = 0,
                     Left = 30,
                     Width = 139
                 },
@@ -177,7 +185,7 @@ namespace ReceiptTemplateSkiaSharp
                 {
                     Color = "#0F0F13",
                     TextSize = 12,
-                    TopPadding = 4,
+                    TopPadding = 0,
                     Left = 178,
                     Width = 77
                 },
@@ -186,7 +194,7 @@ namespace ReceiptTemplateSkiaSharp
                 {
                     Color = "#0F0F13",
                     TextSize = 12,
-                    TopPadding = 4,
+                    TopPadding = 0,
                     Width = 170
                 },
 
@@ -194,24 +202,24 @@ namespace ReceiptTemplateSkiaSharp
                 {
                     Color = "#0F0F13",
                     TextSize = 12,
-                    TopPadding = 6,
+                    TopPadding = 0,
+                    Width = 35
                 },
 
                 OrderItemNoteValue = new Dimensions
                 {
                     Color = "#0F0F13",
                     TextSize = 12,
-                    TopPadding = 6,
+                    TopPadding = 0,
                     Width = 214,
-                    Height = 38,
-                    Left = 30
+                    Left = 35
                 },
 
                 OrderDivider = new Dimensions
                 {
                     Color = "#0F0F13",
                     Left = 10,
-                    Width = 238,
+                    Width = 234,
                     TopPadding = 16
                 },
 
@@ -220,7 +228,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 8,
-                    Width = 254,
+                    Width = 244,
                 },
 
                 NoteDivider1 = new Dimensions
@@ -261,6 +269,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 6,
+                    Width = 165
                 },
 
                 TaxValue = new Dimensions
@@ -277,6 +286,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 6,
+                    Width =165
                 },
 
                 DiscountValue = new Dimensions
@@ -293,6 +303,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 6,
+                    Width = 165
                 },
 
                 SaleValue = new Dimensions
@@ -325,6 +336,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 16,
+                    Width =244
                 },
 
                 PaymentTransactionTitle = new Dimensions
@@ -332,7 +344,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 8,
-                    Width = 175
+                    Width = 165 ,
                 },
 
                 PaymentTransactionValue = new Dimensions
@@ -348,7 +360,7 @@ namespace ReceiptTemplateSkiaSharp
                 {
                     Color = "#0F0F13",
                     Left = 10,
-                    Width = 238,
+                    Width = 234,
                     TopPadding = 16
                 },
 
@@ -357,6 +369,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 16,
+                    Width =165
                 },
 
                 ChangeValue = new Dimensions
@@ -372,7 +385,7 @@ namespace ReceiptTemplateSkiaSharp
                 {
                     Color = "#0F0F13",
                     Left = 10,
-                    Width = 238,
+                    Width = 234,
                     TopPadding = 16
                 },
 
@@ -381,6 +394,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 24,
+                    Width = 244
                 },
 
                 LocationPhoneNumber = new Dimensions
@@ -388,6 +402,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 3,
+                    Width = 244
                 },
 
                 ThanksTitle = new Dimensions
@@ -395,6 +410,7 @@ namespace ReceiptTemplateSkiaSharp
                     Color = "#0F0F13",
                     TextSize = 14,
                     TopPadding = 3,
+                    Width = 244
                 },
 
                 Barcode = new Dimensions

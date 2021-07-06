@@ -93,447 +93,611 @@ namespace ReceiptTemplateSkiaSharp
                 registerName.Paint(canvas, new SKPoint(page.RegisterName.Left, page.RegisterName.Top));
             }
 
-
-            using (SKPaint staffName = new SKPaint())
             {
+                RichString staffName = new RichString()
+                                            .Alignment(TextAlignment.Left)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.StaffName.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.StaffName.Title);
+
                 SKColor.TryParse(page.StaffName.Color, out SKColor color);
 
-                staffName.Color = color;
-
-                staffName.TextSize = page.StaffName.TextSize;
-
-                canvas.DrawText(page.StaffName.Title, page.StaffName.Left, page.StaffName.Top, staffName);
+                staffName.MaxWidth = page.StaffName.Width;
+                staffName.MaxHeight = page.StaffName.Height;
+                staffName.TextColor(color);
+                staffName.Paint(canvas, new SKPoint(page.StaffName.Left, page.StaffName.Top));
             }
 
             DrowDashLine(canvas, page.HeaderDivider.Color, page.HeaderDivider.Left, page.HeaderDivider.Top, page.HeaderDivider.Width);
 
-            using (SKPaint customerTitle = new SKPaint())
             {
+                RichString customerTitle = new RichString()
+                                            .Alignment(TextAlignment.Left)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.CustomerTitle.TextSize)
+                                            .FontWeight(700)
+                                            .Add(page.CustomerTitle.Title);
+
                 SKColor.TryParse(page.CustomerTitle.Color, out SKColor color);
 
-                customerTitle.Color = color;
-
-                customerTitle.TextSize = page.CustomerTitle.TextSize;
-
-                customerTitle.FakeBoldText = true;
-
-                canvas.DrawText(page.CustomerTitle.Title, page.CustomerTitle.Left, page.CustomerTitle.Top, customerTitle);
+                customerTitle.MaxWidth = page.CustomerTitle.Width;
+                customerTitle.MaxHeight = page.CustomerTitle.Height;
+                customerTitle.TextColor(color);
+                customerTitle.Paint(canvas, new SKPoint(page.CustomerTitle.Left, page.CustomerTitle.Top));
             }
 
             if (string.IsNullOrEmpty(page.CustomerAddress.Title) is false)
             {
-                using (SKPaint customerAddress = new SKPaint())
                 {
+                    RichString customerAddress = new RichString()
+                                                .Alignment(TextAlignment.Left)
+                                                .FontFamily("Segoe UI")
+                                                .FontSize(page.CustomerAddress.TextSize)
+                                                .FontWeight(400)
+                                                .Add(page.CustomerAddress.Title);
+
                     SKColor.TryParse(page.CustomerAddress.Color, out SKColor color);
 
-                    customerAddress.Color = color;
-
-                    customerAddress.TextSize = page.CustomerAddress.TextSize;
-
-                    canvas.DrawText(page.CustomerAddress.Title, page.CustomerAddress.Left, page.CustomerAddress.Top, customerAddress);
+                    customerAddress.MaxWidth = page.CustomerAddress.Width;
+                    customerAddress.MaxHeight = page.CustomerAddress.Height;
+                    customerAddress.TextColor(color);
+                    customerAddress.Paint(canvas, new SKPoint(page.CustomerAddress.Left, page.CustomerAddress.Top));
                 }
             }
 
-            using (SKPaint customerName = new SKPaint())
             {
+                RichString customerName = new RichString()
+                                            .Alignment(TextAlignment.Left)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.CustomerName.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.CustomerName.Title);
+
                 SKColor.TryParse(page.CustomerName.Color, out SKColor color);
 
-                customerName.Color = color;
-
-                customerName.TextSize = page.CustomerName.TextSize;
-
-                canvas.DrawText(page.CustomerName.Title, page.CustomerName.Left, page.CustomerName.Top, customerName);
+                customerName.MaxWidth = page.CustomerName.Width;
+                customerName.MaxHeight = page.CustomerName.Height;
+                customerName.TextColor(color);
+                customerName.Paint(canvas, new SKPoint(page.CustomerName.Left, page.CustomerName.Top));
             }
 
             if (string.IsNullOrEmpty(page.CustomerPhoneNumber.Title) is false)
             {
-                using (SKPaint customerPhoneNumber = new SKPaint())
                 {
+                    RichString customerPhoneNumber = new RichString()
+                                                .Alignment(TextAlignment.Left)
+                                                .FontFamily("Segoe UI")
+                                                .FontSize(page.CustomerPhoneNumber.TextSize)
+                                                .FontWeight(400)
+                                                .Add(page.CustomerPhoneNumber.Title);
+
                     SKColor.TryParse(page.CustomerPhoneNumber.Color, out SKColor color);
 
-                    customerPhoneNumber.Color = color;
-
-                    customerPhoneNumber.TextSize = page.CustomerPhoneNumber.TextSize;
-
-                    canvas.DrawText(page.CustomerPhoneNumber.Title, page.CustomerPhoneNumber.Left, page.CustomerPhoneNumber.Top, customerPhoneNumber);
+                    customerPhoneNumber.MaxWidth = page.CustomerPhoneNumber.Width;
+                    customerPhoneNumber.MaxHeight = page.CustomerPhoneNumber.Height;
+                    customerPhoneNumber.TextColor(color);
+                    customerPhoneNumber.Paint(canvas, new SKPoint(page.CustomerPhoneNumber.Left, page.CustomerPhoneNumber.Top));
                 }
             }
 
             DrowDashLine(canvas, page.CustomerDivider.Color, page.CustomerDivider.Left, page.CustomerDivider.Top, page.CustomerDivider.Width);
 
-            using (SKPaint orderDescriptionTitle = new SKPaint())
             {
+                RichString orderDescriptionTitle = new RichString()
+                                            .Alignment(TextAlignment.Left)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.OrderDescriptionTitle.TextSize)
+                                            .FontWeight(700)
+                                            .Add(page.OrderDescriptionTitle.Title);
+
                 SKColor.TryParse(page.OrderDescriptionTitle.Color, out SKColor color);
 
-                orderDescriptionTitle.Color = color;
-
-                orderDescriptionTitle.TextSize = page.OrderDescriptionTitle.TextSize;
-
-                orderDescriptionTitle.FakeBoldText = true;
-
-                canvas.DrawText(page.OrderDescriptionTitle.Title, page.OrderDescriptionTitle.Left, page.OrderDescriptionTitle.Top, orderDescriptionTitle);
+                orderDescriptionTitle.MaxWidth = page.OrderDescriptionTitle.Width;
+                orderDescriptionTitle.MaxHeight = page.OrderDescriptionTitle.Height;
+                orderDescriptionTitle.TextColor(color);
+                orderDescriptionTitle.Paint(canvas, new SKPoint(page.OrderDescriptionTitle.Left, page.OrderDescriptionTitle.Top));
             }
 
-            using (SKPaint orderQuantityTitle = new SKPaint())
             {
+                RichString orderQuantityTitle = new RichString()
+                                            .Alignment(TextAlignment.Right)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.OrderQuantityTitle.TextSize)
+                                            .FontWeight(700)
+                                            .Add(page.OrderQuantityTitle.Title);
+
                 SKColor.TryParse(page.OrderQuantityTitle.Color, out SKColor color);
 
-                orderQuantityTitle.Color = color;
-
-                orderQuantityTitle.TextSize = page.OrderQuantityTitle.TextSize;
-
-                orderQuantityTitle.FakeBoldText = true;
-
-                canvas.DrawText(page.OrderQuantityTitle.Title, page.OrderQuantityTitle.Left, page.OrderQuantityTitle.Top, orderQuantityTitle);
+                orderQuantityTitle.MaxWidth = page.OrderQuantityTitle.Width;
+                orderQuantityTitle.MaxHeight = page.OrderQuantityTitle.Height;
+                orderQuantityTitle.TextColor(color);
+                orderQuantityTitle.Paint(canvas, new SKPoint(page.OrderQuantityTitle.Left, page.OrderQuantityTitle.Top));
             }
 
-            using (SKPaint orderTotalTitle = new SKPaint())
             {
+                RichString orderTotalTitle = new RichString()
+                                            .Alignment(TextAlignment.Right)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.OrderTotalTitle.TextSize)
+                                            .FontWeight(700)
+                                            .Add(page.OrderTotalTitle.Title);
+
                 SKColor.TryParse(page.OrderTotalTitle.Color, out SKColor color);
 
-                orderTotalTitle.Color = color;
-
-                orderTotalTitle.TextSize = page.OrderTotalTitle.TextSize;
-
-                orderTotalTitle.FakeBoldText = true;
-
-                canvas.DrawText(page.OrderTotalTitle.Title, page.OrderTotalTitle.Left, page.OrderTotalTitle.Top, orderTotalTitle);
+                orderTotalTitle.MaxWidth = page.OrderTotalTitle.Width;
+                orderTotalTitle.MaxHeight = page.OrderTotalTitle.Height;
+                orderTotalTitle.TextColor(color);
+                orderTotalTitle.Paint(canvas, new SKPoint(page.OrderTotalTitle.Left, page.OrderTotalTitle.Top));
             }
+
 
             foreach (var orderItem in page.OrderItems)
             {
-                using (SKPaint orderItemName = new SKPaint())
                 {
+                    RichString orderItemName = new RichString()
+                                                .Alignment(TextAlignment.Left)
+                                                .FontFamily("Segoe UI")
+                                                .FontSize(orderItem.Name.TextSize)
+                                                .FontWeight(400)
+                                                .Add(orderItem.Name.Title);
+
                     SKColor.TryParse(orderItem.Name.Color, out SKColor color);
 
-                    orderItemName.Color = color;
-
-                    orderItemName.TextSize = orderItem.Name.TextSize;
-
-                    canvas.DrawText(orderItem.Name.Title, orderItem.Name.Left, orderItem.Name.Top, orderItemName);
+                    orderItemName.MaxWidth = orderItem.Name.Width;
+                    orderItemName.MaxHeight = orderItem.Name.Height;
+                    orderItemName.TextColor(color);
+                    orderItemName.Paint(canvas, new SKPoint(orderItem.Name.Left, orderItem.Name.Top));
                 }
 
-                using (SKPaint orderItemQuantity = new SKPaint())
                 {
+                    RichString orderItemQuantity = new RichString()
+                                                .Alignment(TextAlignment.Right)
+                                                .FontFamily("Segoe UI")
+                                                .FontSize(orderItem.Quantity.TextSize)
+                                                .FontWeight(500)
+                                                .Add(orderItem.Quantity.Title);
+
                     SKColor.TryParse(orderItem.Quantity.Color, out SKColor color);
 
-                    orderItemQuantity.Color = color;
-
-                    orderItemQuantity.TextSize = orderItem.Quantity.TextSize;
-
-                    canvas.DrawText(orderItem.Quantity.Title, orderItem.Quantity.Left, orderItem.Quantity.Top, orderItemQuantity);
+                    orderItemQuantity.MaxWidth = orderItem.Quantity.Width;
+                    orderItemQuantity.MaxHeight = orderItem.Quantity.Height;
+                    orderItemQuantity.TextColor(color);
+                    orderItemQuantity.Paint(canvas, new SKPoint(orderItem.Quantity.Left, orderItem.Quantity.Top));
                 }
 
-                using (SKPaint totalPrice = new SKPaint())
                 {
+                    RichString totalPrice = new RichString()
+                                                .Alignment(TextAlignment.Right)
+                                                .FontFamily("Segoe UI")
+                                                .FontSize(orderItem.TotalPrice.TextSize)
+                                                .FontWeight(500)
+                                                .Add(orderItem.TotalPrice.Title);
+
                     SKColor.TryParse(orderItem.TotalPrice.Color, out SKColor color);
 
-                    totalPrice.Color = color;
-
-                    totalPrice.TextSize = orderItem.TotalPrice.TextSize;
-
-                    canvas.DrawText(orderItem.TotalPrice.Title, orderItem.TotalPrice.Left, orderItem.TotalPrice.Top, totalPrice);
+                    totalPrice.MaxWidth = orderItem.TotalPrice.Width;
+                    totalPrice.MaxHeight = orderItem.TotalPrice.Height;
+                    totalPrice.TextColor(color);
+                    totalPrice.Paint(canvas, new SKPoint(orderItem.TotalPrice.Left, orderItem.TotalPrice.Top));
                 }
+
 
                 if (string.IsNullOrEmpty(orderItem.DiscountValue.Title) is false)
                 {
-                    using (SKPaint discountTitle = new SKPaint())
+
                     {
+                        RichString discountTitle = new RichString()
+                                                    .Alignment(TextAlignment.Left)
+                                                    .FontFamily("Segoe UI")
+                                                    .FontSize(orderItem.DiscountTitle.TextSize)
+                                                    .FontWeight(500)
+                                                    .Add(orderItem.DiscountTitle.Title);
+
                         SKColor.TryParse(orderItem.DiscountTitle.Color, out SKColor color);
 
-                        discountTitle.Color = color;
-
-                        discountTitle.TextSize = orderItem.DiscountTitle.TextSize;
-
-                        canvas.DrawText(orderItem.DiscountTitle.Title, orderItem.DiscountTitle.Left, orderItem.DiscountTitle.Top, discountTitle);
+                        discountTitle.MaxWidth = orderItem.DiscountTitle.Width;
+                        discountTitle.MaxHeight = orderItem.DiscountTitle.Height;
+                        discountTitle.TextColor(color);
+                        discountTitle.Paint(canvas, new SKPoint(orderItem.DiscountTitle.Left, orderItem.DiscountTitle.Top));
                     }
 
-                    using (SKPaint discountValue = new SKPaint())
                     {
+                        RichString discountValue = new RichString()
+                                                    .Alignment(TextAlignment.Left)
+                                                    .FontFamily("Segoe UI")
+                                                    .FontSize(orderItem.DiscountValue.TextSize)
+                                                    .FontWeight(400)
+                                                    .Add(orderItem.DiscountValue.Title);
+
                         SKColor.TryParse(orderItem.DiscountValue.Color, out SKColor color);
 
-                        discountValue.Color = color;
-
-                        discountValue.TextSize = orderItem.DiscountValue.TextSize;
-
-                        canvas.DrawText(orderItem.DiscountValue.Title, orderItem.DiscountValue.Left, orderItem.DiscountValue.Top, discountValue);
+                        discountValue.MaxWidth = orderItem.DiscountValue.Width;
+                        discountValue.MaxHeight = orderItem.DiscountValue.Height;
+                        discountValue.TextColor(color);
+                        discountValue.Paint(canvas, new SKPoint(orderItem.DiscountValue.Left, orderItem.DiscountValue.Top));
                     }
 
-                    using (SKPaint mainPrice = new SKPaint())
                     {
+                        RichString mainPrice = new RichString()
+                                                    .Alignment(TextAlignment.Right)
+                                                    .FontFamily("Segoe UI")
+                                                    .FontSize(orderItem.MainPrice.TextSize)
+                                                    .FontWeight(400)
+                                                    .StrikeThrough(StrikeThroughStyle.Solid)
+                                                    .Add(orderItem.MainPrice.Title);
+
                         SKColor.TryParse(orderItem.MainPrice.Color, out SKColor color);
 
-                        mainPrice.Color = color;
-
-                        mainPrice.TextSize = orderItem.MainPrice.TextSize;
-
-                        canvas.DrawText(orderItem.MainPrice.Title, orderItem.MainPrice.Left, orderItem.MainPrice.Top, mainPrice);
+                        mainPrice.MaxWidth = orderItem.MainPrice.Width;
+                        mainPrice.MaxHeight = orderItem.MainPrice.Height;
+                        mainPrice.TextColor(color);
+                        mainPrice.Paint(canvas, new SKPoint(orderItem.MainPrice.Left, orderItem.MainPrice.Top));
                     }
                 }
 
                 if (string.IsNullOrEmpty(orderItem.Values.Title) is false)
                 {
-                    using (SKPaint values = new SKPaint())
                     {
+                        RichString values = new RichString()
+                                                    .Alignment(TextAlignment.Left)
+                                                    .FontFamily("Segoe UI")
+                                                    .FontSize(orderItem.Values.TextSize)
+                                                    .FontWeight(400)
+                                                    .Add(orderItem.Values.Title);
+
                         SKColor.TryParse(orderItem.Values.Color, out SKColor color);
 
-                        values.Color = color;
-
-                        values.TextSize = orderItem.Values.TextSize;
-
-                        canvas.DrawText(orderItem.Values.Title, orderItem.Values.Left, orderItem.Values.Top, values);
+                        values.MaxWidth = orderItem.Values.Width;
+                        values.MaxHeight = orderItem.Values.Height;
+                        values.TextColor(color);
+                        values.Paint(canvas, new SKPoint(orderItem.Values.Left, orderItem.Values.Top));
                     }
                 }
 
                 if (string.IsNullOrEmpty(orderItem.NoteValue.Title) is false)
                 {
-                    using (SKPaint noteTitle = new SKPaint())
                     {
+                        RichString noteTitle = new RichString()
+                                                    .Alignment(TextAlignment.Left)
+                                                    .FontFamily("Segoe UI")
+                                                    .FontSize(orderItem.NoteTitle.TextSize)
+                                                    .FontWeight(700)
+                                                    .Add(orderItem.NoteTitle.Title);
+
                         SKColor.TryParse(orderItem.NoteTitle.Color, out SKColor color);
 
-                        noteTitle.Color = color;
-
-                        noteTitle.TextSize = orderItem.NoteTitle.TextSize;
-
-                        canvas.DrawText(orderItem.NoteTitle.Title, orderItem.NoteTitle.Left, orderItem.NoteTitle.Top, noteTitle);
+                        noteTitle.MaxWidth = orderItem.NoteTitle.Width;
+                        noteTitle.MaxHeight = orderItem.NoteTitle.Height;
+                        noteTitle.TextColor(color);
+                        noteTitle.Paint(canvas, new SKPoint(orderItem.NoteTitle.Left, orderItem.NoteTitle.Top));
                     }
 
-                    using (SKPaint noteValue = new SKPaint())
                     {
+                        RichString noteValue = new RichString()
+                                                    .Alignment(TextAlignment.Left)
+                                                    .FontFamily("Segoe UI")
+                                                    .FontSize(orderItem.NoteValue.TextSize)
+                                                    .FontWeight(400)
+                                                    .Add(orderItem.NoteValue.Title);
+
                         SKColor.TryParse(orderItem.NoteValue.Color, out SKColor color);
 
-                        noteValue.Color = color;
-
-                        noteValue.TextSize = orderItem.NoteValue.TextSize;
-
-                        canvas.DrawText(orderItem.NoteValue.Title, orderItem.NoteValue.Left, orderItem.NoteValue.Top, noteValue);
+                        noteValue.MaxWidth = orderItem.NoteValue.Width;
+                        noteValue.MaxHeight = orderItem.NoteValue.Height;
+                        noteValue.TextColor(color);
+                        noteValue.Paint(canvas, new SKPoint(orderItem.NoteValue.Left, orderItem.NoteValue.Top));
                     }
                 }
             }
 
             if (string.IsNullOrEmpty(page.OrderNote.Title) is false)
             {
-                DrowDashLine(canvas, page.OrderDivider.Color, page.OrderDivider.Left, page.OrderDivider.Top, page.OrderDivider.Width);
+                DrowLine(canvas, page.OrderDivider.Color, page.OrderDivider.Left, page.OrderDivider.Top, page.OrderDivider.Width);
 
-                using (SKPaint orderNote = new SKPaint())
                 {
+                    RichString orderNote = new RichString()
+                                                .Alignment(TextAlignment.Left)
+                                                .FontFamily("Segoe UI")
+                                                .FontSize(page.OrderNote.TextSize)
+                                                .FontWeight(400)
+                                                .Add(page.OrderNote.Title);
+
                     SKColor.TryParse(page.OrderNote.Color, out SKColor color);
 
-                    orderNote.Color = color;
-
-                    orderNote.TextSize = page.OrderNote.TextSize;
-
-                    canvas.DrawText(page.OrderNote.Title, page.OrderNote.Left, page.OrderNote.Top, orderNote);
+                    orderNote.MaxWidth = page.OrderNote.Width;
+                    orderNote.MaxHeight = page.OrderNote.Height;
+                    orderNote.TextColor(color);
+                    orderNote.Paint(canvas, new SKPoint(page.OrderNote.Left, page.OrderNote.Top));
                 }
+
             }
 
             DrowDashLine(canvas, page.NoteDivider1.Color, page.NoteDivider1.Left, page.NoteDivider1.Top, page.NoteDivider1.Width);
             DrowDashLine(canvas, page.NoteDivider2.Color, page.NoteDivider2.Left, page.NoteDivider2.Top, page.NoteDivider2.Width);
 
-
-            using (SKPaint subtotalTitle = new SKPaint())
             {
+                RichString subtotalTitle = new RichString()
+                                            .Alignment(TextAlignment.Left)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.SubtotalTitle.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.SubtotalTitle.Title);
+
                 SKColor.TryParse(page.SubtotalTitle.Color, out SKColor color);
 
-                subtotalTitle.Color = color;
-
-                subtotalTitle.TextSize = page.SubtotalTitle.TextSize;
-
-                canvas.DrawText(page.SubtotalTitle.Title, page.SubtotalTitle.Left, page.SubtotalTitle.Top, subtotalTitle);
+                subtotalTitle.MaxWidth = page.SubtotalTitle.Width;
+                subtotalTitle.MaxHeight = page.SubtotalTitle.Height;
+                subtotalTitle.TextColor(color);
+                subtotalTitle.Paint(canvas, new SKPoint(page.SubtotalTitle.Left, page.SubtotalTitle.Top));
             }
 
-            using (SKPaint subtotalValue = new SKPaint())
             {
+                RichString subtotalValue = new RichString()
+                                            .Alignment(TextAlignment.Right)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.SubtotalValue.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.SubtotalValue.Title);
+
                 SKColor.TryParse(page.SubtotalValue.Color, out SKColor color);
 
-                subtotalValue.Color = color;
-
-                subtotalValue.TextSize = page.SubtotalValue.TextSize;
-
-                canvas.DrawText(page.SubtotalValue.Title, page.SubtotalValue.Left, page.SubtotalValue.Top, subtotalValue);
+                subtotalValue.MaxWidth = page.SubtotalValue.Width;
+                subtotalValue.MaxHeight = page.SubtotalValue.Height;
+                subtotalValue.TextColor(color);
+                subtotalValue.Paint(canvas, new SKPoint(page.SubtotalValue.Left, page.SubtotalValue.Top));
             }
 
-            using (SKPaint taxTitle = new SKPaint())
             {
+                RichString taxTitle = new RichString()
+                                            .Alignment(TextAlignment.Left)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.TaxTitle.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.TaxTitle.Title);
+
                 SKColor.TryParse(page.TaxTitle.Color, out SKColor color);
 
-                taxTitle.Color = color;
-
-                taxTitle.TextSize = page.TaxTitle.TextSize;
-
-                canvas.DrawText(page.TaxTitle.Title, page.TaxTitle.Left, page.TaxTitle.Top, taxTitle);
+                taxTitle.MaxWidth = page.TaxTitle.Width;
+                taxTitle.MaxHeight = page.TaxTitle.Height;
+                taxTitle.TextColor(color);
+                taxTitle.Paint(canvas, new SKPoint(page.TaxTitle.Left, page.TaxTitle.Top));
             }
 
-            using (SKPaint taxValue = new SKPaint())
             {
+                RichString taxValue = new RichString()
+                                            .Alignment(TextAlignment.Right)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.TaxValue.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.TaxValue.Title);
+
                 SKColor.TryParse(page.TaxValue.Color, out SKColor color);
 
-                taxValue.Color = color;
-
-                taxValue.TextSize = page.TaxValue.TextSize;
-
-                canvas.DrawText(page.TaxValue.Title, page.TaxValue.Left, page.TaxValue.Top, taxValue);
+                taxValue.MaxWidth = page.TaxValue.Width;
+                taxValue.MaxHeight = page.TaxValue.Height;
+                taxValue.TextColor(color);
+                taxValue.Paint(canvas, new SKPoint(page.TaxValue.Left, page.TaxValue.Top));
             }
 
-            using (SKPaint discountTitle = new SKPaint())
             {
+                RichString discountTitle = new RichString()
+                                            .Alignment(TextAlignment.Left)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.DiscountTitle.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.DiscountTitle.Title);
+
                 SKColor.TryParse(page.DiscountTitle.Color, out SKColor color);
 
-                discountTitle.Color = color;
-
-                discountTitle.TextSize = page.DiscountTitle.TextSize;
-
-                canvas.DrawText(page.DiscountTitle.Title, page.DiscountTitle.Left, page.DiscountTitle.Top, discountTitle);
+                discountTitle.MaxWidth = page.DiscountTitle.Width;
+                discountTitle.MaxHeight = page.DiscountTitle.Height;
+                discountTitle.TextColor(color);
+                discountTitle.Paint(canvas, new SKPoint(page.DiscountTitle.Left, page.DiscountTitle.Top));
             }
 
-            using (SKPaint discountValue = new SKPaint())
             {
+                RichString discountValue = new RichString()
+                                            .Alignment(TextAlignment.Right)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.DiscountValue.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.DiscountValue.Title);
+
                 SKColor.TryParse(page.DiscountValue.Color, out SKColor color);
 
-                discountValue.Color = color;
-
-                discountValue.TextSize = page.DiscountValue.TextSize;
-
-                canvas.DrawText(page.DiscountValue.Title, page.DiscountValue.Left, page.DiscountValue.Top, discountValue);
+                discountValue.MaxWidth = page.DiscountValue.Width;
+                discountValue.MaxHeight = page.DiscountValue.Height;
+                discountValue.TextColor(color);
+                discountValue.Paint(canvas, new SKPoint(page.DiscountValue.Left, page.DiscountValue.Top));
             }
 
-            using (SKPaint saleTotalTitle = new SKPaint())
             {
+                RichString saleTotalTitle = new RichString()
+                                            .Alignment(TextAlignment.Left)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.SaleTotalTitle.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.SaleTotalTitle.Title);
+
                 SKColor.TryParse(page.SaleTotalTitle.Color, out SKColor color);
 
-                saleTotalTitle.Color = color;
-
-                saleTotalTitle.TextSize = page.SaleTotalTitle.TextSize;
-
-                canvas.DrawText(page.SaleTotalTitle.Title, page.SaleTotalTitle.Left, page.SaleTotalTitle.Top, saleTotalTitle);
+                saleTotalTitle.MaxWidth = page.SaleTotalTitle.Width;
+                saleTotalTitle.MaxHeight = page.SaleTotalTitle.Height;
+                saleTotalTitle.TextColor(color);
+                saleTotalTitle.Paint(canvas, new SKPoint(page.SaleTotalTitle.Left, page.SaleTotalTitle.Top));
             }
 
-            using (SKPaint saleValue = new SKPaint())
             {
+                RichString saleValue = new RichString()
+                                            .Alignment(TextAlignment.Right)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.SaleValue.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.SaleValue.Title);
+
                 SKColor.TryParse(page.SaleValue.Color, out SKColor color);
 
-                saleValue.Color = color;
-
-                saleValue.TextSize = page.SaleValue.TextSize;
-
-                canvas.DrawText(page.SaleValue.Title, page.SaleValue.Left, page.SaleValue.Top, saleValue);
+                saleValue.MaxWidth = page.SaleValue.Width;
+                saleValue.MaxHeight = page.SaleValue.Height;
+                saleValue.TextColor(color);
+                saleValue.Paint(canvas, new SKPoint(page.SaleValue.Left, page.SaleValue.Top));
             }
 
             DrowDashLine(canvas, page.PricingDivider1.Color, page.PricingDivider1.Left, page.PricingDivider1.Top, page.PricingDivider1.Width);
             DrowDashLine(canvas, page.PricingDivider2.Color, page.PricingDivider2.Left, page.PricingDivider2.Top, page.PricingDivider2.Width);
-           
 
-            using (SKPaint paymentSummaryTitle = new SKPaint())
             {
+                RichString paymentSummaryTitle = new RichString()
+                                            .Alignment(TextAlignment.Left)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.PaymentSummaryTitle.TextSize)
+                                            .FontWeight(700)
+                                            .Add(page.PaymentSummaryTitle.Title);
+
                 SKColor.TryParse(page.PaymentSummaryTitle.Color, out SKColor color);
 
-                paymentSummaryTitle.Color = color;
-
-                paymentSummaryTitle.TextSize = page.PaymentSummaryTitle.TextSize;
-
-                paymentSummaryTitle.FakeBoldText = true;
-
-                canvas.DrawText(page.PaymentSummaryTitle.Title, page.PaymentSummaryTitle.Left, page.PaymentSummaryTitle.Top, paymentSummaryTitle);
+                paymentSummaryTitle.MaxWidth = page.PaymentSummaryTitle.Width;
+                paymentSummaryTitle.MaxHeight = page.PaymentSummaryTitle.Height;
+                paymentSummaryTitle.TextColor(color);
+                paymentSummaryTitle.Paint(canvas, new SKPoint(page.PaymentSummaryTitle.Left, page.PaymentSummaryTitle.Top));
             }
 
             foreach (var paymentTransaction in page.PaymentTransactions)
             {
-                using (SKPaint paymentTransactionTitle = new SKPaint())
                 {
+                    RichString paymentTransactionTitle = new RichString()
+                                                .Alignment(TextAlignment.Left)
+                                                .FontFamily("Segoe UI")
+                                                .FontSize(paymentTransaction.Title.TextSize)
+                                                .FontWeight(400)
+                                                .Add(paymentTransaction.Title.Title);
+
                     SKColor.TryParse(paymentTransaction.Title.Color, out SKColor color);
 
-                    paymentTransactionTitle.Color = color;
-
-                    paymentTransactionTitle.TextSize = paymentTransaction.Title.TextSize;
-
-                    canvas.DrawText(paymentTransaction.Title.Title, paymentTransaction.Title.Left, paymentTransaction.Title.Top, paymentTransactionTitle);
+                    paymentTransactionTitle.MaxWidth = paymentTransaction.Title.Width;
+                    paymentTransactionTitle.MaxHeight = paymentTransaction.Title.Height;
+                    paymentTransactionTitle.TextColor(color);
+                    paymentTransactionTitle.Paint(canvas, new SKPoint(paymentTransaction.Title.Left, paymentTransaction.Title.Top));
                 }
 
-                using (SKPaint paymentTransactionValue = new SKPaint())
                 {
-                    SKColor.TryParse(paymentTransaction.Value.Color, out SKColor color);
+                    RichString paymentTransactionValue = new RichString()
+                                                .Alignment(TextAlignment.Right)
+                                                .FontFamily("Segoe UI")
+                                                .FontSize(paymentTransaction.Value.TextSize)
+                                                .FontWeight(400)
+                                                .Add(paymentTransaction.Value.Title);
 
-                    paymentTransactionValue.Color = color;
+                    SKColor.TryParse(paymentTransaction.Title.Color, out SKColor color);
 
-                    paymentTransactionValue.TextSize = paymentTransaction.Value.TextSize;
-
-                    canvas.DrawText(paymentTransaction.Value.Title, paymentTransaction.Value.Left, paymentTransaction.Value.Top, paymentTransactionValue);
+                    paymentTransactionValue.MaxWidth = paymentTransaction.Value.Width;
+                    paymentTransactionValue.MaxHeight = paymentTransaction.Value.Height;
+                    paymentTransactionValue.TextColor(color);
+                    paymentTransactionValue.Paint(canvas, new SKPoint(paymentTransaction.Value.Left, paymentTransaction.Value.Top));
                 }
             }
 
             DrowLine(canvas, page.PaymentDivider.Color, page.PaymentDivider.Left, page.PaymentDivider.Top, page.PaymentDivider.Width);
 
-            using (SKPaint changeTitle = new SKPaint())
             {
+                RichString changeTitle = new RichString()
+                                            .Alignment(TextAlignment.Left)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.ChangeTitle.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.ChangeTitle.Title);
+
                 SKColor.TryParse(page.ChangeTitle.Color, out SKColor color);
 
-                changeTitle.Color = color;
-
-                changeTitle.TextSize = page.ChangeTitle.TextSize;
-
-                canvas.DrawText(page.ChangeTitle.Title, page.ChangeTitle.Left, page.ChangeTitle.Top, changeTitle);
+                changeTitle.MaxWidth = page.ChangeTitle.Width;
+                changeTitle.MaxHeight = page.ChangeTitle.Height;
+                changeTitle.TextColor(color);
+                changeTitle.Paint(canvas, new SKPoint(page.ChangeTitle.Left, page.ChangeTitle.Top));
             }
 
-            using (SKPaint changeValue = new SKPaint())
             {
+                RichString changeValue = new RichString()
+                                            .Alignment(TextAlignment.Right)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.ChangeValue.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.ChangeValue.Title);
+
                 SKColor.TryParse(page.ChangeValue.Color, out SKColor color);
 
-                changeValue.Color = color;
-
-                changeValue.TextSize = page.ChangeValue.TextSize;
-
-                canvas.DrawText(page.ChangeValue.Title, page.ChangeValue.Left, page.ChangeValue.Top, changeValue);
+                changeValue.MaxWidth = page.ChangeValue.Width;
+                changeValue.MaxHeight = page.ChangeValue.Height;
+                changeValue.TextColor(color);
+                changeValue.Paint(canvas, new SKPoint(page.ChangeValue.Left, page.ChangeValue.Top));
             }
 
             DrowDashLine(canvas, page.ChangeDivider.Color, page.ChangeDivider.Left, page.ChangeDivider.Top, page.ChangeDivider.Width);
 
-            using (SKPaint locationName = new SKPaint())
             {
+                RichString locationName = new RichString()
+                                            .Alignment(TextAlignment.Center)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.LocationName.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.LocationName.Title);
+
                 SKColor.TryParse(page.LocationName.Color, out SKColor color);
 
-                locationName.Color = color;
-
-                locationName.TextSize = page.LocationName.TextSize;
-
-                canvas.DrawText(page.LocationName.Title, page.LocationName.Left, page.LocationName.Top, locationName);
+                locationName.MaxWidth = page.LocationName.Width;
+                locationName.MaxHeight = page.LocationName.Height;
+                locationName.TextColor(color);
+                locationName.Paint(canvas, new SKPoint(page.LocationName.Left, page.LocationName.Top));
             }
 
-            using (SKPaint locationPhoneNumber = new SKPaint())
             {
+                RichString locationPhoneNumber = new RichString()
+                                            .Alignment(TextAlignment.Center)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.LocationPhoneNumber.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.LocationPhoneNumber.Title);
+
                 SKColor.TryParse(page.LocationPhoneNumber.Color, out SKColor color);
 
-                locationPhoneNumber.Color = color;
-
-                locationPhoneNumber.TextSize = page.LocationPhoneNumber.TextSize;
-
-                canvas.DrawText(page.LocationPhoneNumber.Title, page.LocationPhoneNumber.Left, page.LocationPhoneNumber.Top, locationPhoneNumber);
+                locationPhoneNumber.MaxWidth = page.LocationPhoneNumber.Width;
+                locationPhoneNumber.MaxHeight = page.LocationPhoneNumber.Height;
+                locationPhoneNumber.TextColor(color);
+                locationPhoneNumber.Paint(canvas, new SKPoint(page.LocationPhoneNumber.Left, page.LocationPhoneNumber.Top));
             }
 
-            using (SKPaint thanksTitle = new SKPaint())
             {
+                RichString thanksTitle = new RichString()
+                                            .Alignment(TextAlignment.Center)
+                                            .FontFamily("Segoe UI")
+                                            .FontSize(page.ThanksTitle.TextSize)
+                                            .FontWeight(400)
+                                            .Add(page.ThanksTitle.Title);
+
                 SKColor.TryParse(page.ThanksTitle.Color, out SKColor color);
 
-                thanksTitle.Color = color;
-
-                thanksTitle.TextSize = page.ThanksTitle.TextSize;
-
-                canvas.DrawText(page.ThanksTitle.Title, page.ThanksTitle.Left, page.ThanksTitle.Top, thanksTitle);
+                thanksTitle.MaxWidth = page.ThanksTitle.Width;
+                thanksTitle.MaxHeight = page.ThanksTitle.Height;
+                thanksTitle.TextColor(color);
+                thanksTitle.Paint(canvas, new SKPoint(page.ThanksTitle.Left, page.ThanksTitle.Top));
             }
 
-            var barcodeWriter = new ZXing.SkiaSharp.BarcodeWriter()
-            {
-                Format = BarcodeFormat.CODE_128,
 
-                Options = new ZXing.Common.EncodingOptions
+            {
+                var barcodeWriter = new ZXing.SkiaSharp.BarcodeWriter();
+
+                barcodeWriter.Format = BarcodeFormat.CODE_128;
+                barcodeWriter.Options = new ZXing.Common.EncodingOptions
                 {
                     Height = page.Barcode.HeightInt,
                     Width = page.Barcode.WidthInt,
-                },
-            };
+                };
 
-            SKBitmap bitmap = barcodeWriter.Write(page.Barcode.Title);
 
-            canvas.DrawBitmap(bitmap, new SKPoint { X = page.Barcode.Left, Y = page.Barcode.Top });
+                SKBitmap bitmap = barcodeWriter.Write(page.Barcode.Title);
+
+                canvas.DrawBitmap(bitmap, new SKPoint { X = page.Barcode.Left, Y = page.Barcode.Top });
+            }
         }
 
         private void DrowDashLine(SKCanvas canvas, string colorLine, float left, float top, float width)

@@ -85,12 +85,12 @@ namespace ReceiptTemplateSkiaSharp
                         MainPrice = new LabelCoordinations{ Title = null},
                         Values = new LabelCoordinations{ Title = null},
                         NoteTitle = new LabelCoordinations{ Title = "Note:"},
-                        NoteValue = new LabelCoordinations{ Title = "this is a note"},
+                        NoteValue = new LabelCoordinations{ Title = "this is a order note this is a order note this is a order note this is a"},
                     }
                 },
                 OrderDivider = new LabelCoordinations { },
 
-                OrderNote = new LabelCoordinations { Title = null },
+                OrderNote = new LabelCoordinations { Title = " this is a order note this is a order note this is a order note this is a order note this is a order note" },
                 NoteDivider1 = new LabelCoordinations { },
                 NoteDivider2 = new LabelCoordinations { },
 

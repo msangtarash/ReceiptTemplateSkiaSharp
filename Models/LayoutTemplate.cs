@@ -9,7 +9,7 @@ namespace ReceiptTemplateSkiaSharp.Models
         public float PageHeight { get; set; }
         public float PageWidth { get; set; }
         public float TopMargin { get; set; }
-        public float LeftMargin { get; set; }
+        public float LeftPadding { get; set; }
 
         public Dimensions StoreName { get; set; }
         public Dimensions StoreNameDivider { get; set; }
