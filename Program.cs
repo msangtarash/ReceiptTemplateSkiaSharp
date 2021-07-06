@@ -30,7 +30,7 @@ namespace ReceiptTemplateSkiaSharp
         {
             return new ReceiptPage
             {
-                StoreName = new LabelCoordinations { Title = "Store Name" },
+                StoreName = new LabelCoordinations { Title = " Store Name Store Name Store Name" },
                 StoreNameDivider = new LabelCoordinations { },
 
                 Date = new LabelCoordinations { Title = "Date and Time" },

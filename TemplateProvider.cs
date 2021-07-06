@@ -27,7 +27,8 @@ namespace ReceiptTemplateSkiaSharp
                 {
                     Color = "#0F0F13",
                     TextSize = 22,
-                    TopPadding = 39
+                    TopPadding = 39,
+                    Width = 230
                 },
 
                 StoreNameDivider = new Dimensions
@@ -42,7 +43,8 @@ namespace ReceiptTemplateSkiaSharp
                 {
                     Color = "#0F0F13",
                     TextSize = 14,
-                    TopPadding = 16
+                    TopPadding = 16,
+                    Width = 230
                 },
 
 
@@ -50,7 +52,8 @@ namespace ReceiptTemplateSkiaSharp
                 {
                     Color = "#0F0F13",
                     TextSize = 14,
-                    TopPadding = 6
+                    TopPadding = 6,
+                    Width = 230
                 },
 
                 StaffName = new Dimensions

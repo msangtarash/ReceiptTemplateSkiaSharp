@@ -3,6 +3,7 @@ using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Topten.RichTextKit;
 
 namespace ReceiptTemplateSkiaSharp
 {
@@ -22,10 +23,11 @@ namespace ReceiptTemplateSkiaSharp
 
             receipt.StoreName.Color = _layoutTemplate.StoreName.Color;
             receipt.StoreName.TextSize = _layoutTemplate.StoreName.TextSize;
-            receipt.StoreName.Height = CalculateTextHeight(receipt.StoreName.TextSize, receipt.StoreName.Title);
-            receipt.StoreName.Top = currentTopSpace + _layoutTemplate.StoreName.TopPadding + receipt.StoreName.Height;
-            receipt.StoreName.Left = CalculateCenteredTextX(_layoutTemplate.StoreName.TextSize, receipt.StoreName.Title, 0);
-            currentTopSpace = receipt.StoreName.Top;
+            receipt.StoreName.Width = _layoutTemplate.StoreName.Width;
+            receipt.StoreName.Height = CalculateTextHeight(receipt.StoreName.TextSize, receipt.StoreName.Title, receipt.StoreName.Width);
+            receipt.StoreName.Top = currentTopSpace + _layoutTemplate.StoreName.TopPadding;
+            receipt.StoreName.Left =_layoutTemplate.StoreName.Left + _layoutTemplate.LeftMargin;
+            currentTopSpace = receipt.StoreName.Top + receipt.StoreName.Height;
 
             receipt.StoreNameDivider.Color = _layoutTemplate.StoreNameDivider.Color;
             receipt.StoreNameDivider.Top = currentTopSpace + _layoutTemplate.StoreNameDivider.TopPadding;
@@ -35,24 +37,28 @@ namespace ReceiptTemplateSkiaSharp
 
             receipt.Date.Color = _layoutTemplate.Date.Color;
             receipt.Date.TextSize = _layoutTemplate.Date.TextSize;
-            receipt.Date.Height = CalculateTextHeight(receipt.Date.TextSize, receipt.Date.Title);
-            receipt.Date.Top = currentTopSpace + _layoutTemplate.Date.TopPadding + receipt.Date.Height;
+            receipt.Date.Width = _layoutTemplate.Date.Width;
+            receipt.Date.Height = CalculateTextHeight(receipt.Date.TextSize, receipt.Date.Title ,receipt.Date.Width);
+            receipt.Date.Top = currentTopSpace + _layoutTemplate.Date.TopPadding;
             receipt.Date.Left = _layoutTemplate.Date.Left + _layoutTemplate.LeftMargin;
-            currentTopSpace = receipt.Date.Top;
+            currentTopSpace = receipt.Date.Top + receipt.Date.Height;
 
             receipt.RegisterName.Color = _layoutTemplate.RegisterName.Color;
             receipt.RegisterName.TextSize = _layoutTemplate.RegisterName.TextSize;
-            receipt.RegisterName.Height = CalculateTextHeight(receipt.RegisterName.TextSize, receipt.RegisterName.Title);
-            receipt.RegisterName.Top = currentTopSpace + _layoutTemplate.RegisterName.TopPadding + receipt.RegisterName.Height;
+            receipt.RegisterName.Width = _layoutTemplate.RegisterName.Width;
+            receipt.RegisterName.Height = CalculateTextHeight(receipt.RegisterName.TextSize, receipt.RegisterName.Title, receipt.RegisterName.Width);
+            receipt.RegisterName.Top = currentTopSpace + _layoutTemplate.RegisterName.TopPadding;
             receipt.RegisterName.Left = _layoutTemplate.RegisterName.Left + _layoutTemplate.LeftMargin;
-            currentTopSpace = receipt.RegisterName.Top;
+            currentTopSpace = receipt.RegisterName.Top + receipt.RegisterName.Height;
 
             receipt.StaffName.Color = _layoutTemplate.StaffName.Color;
             receipt.StaffName.TextSize = _layoutTemplate.StaffName.TextSize;
-            receipt.StaffName.Height = CalculateTextHeight(receipt.StaffName.TextSize, receipt.StaffName.Title);
-            receipt.StaffName.Top = currentTopSpace + _layoutTemplate.StaffName.TopPadding + receipt.StaffName.Height;
+            receipt.StaffName.Width = _layoutTemplate.StaffName.Width;
+            receipt.StaffName.Height = CalculateTextHeight(receipt.StaffName.TextSize, receipt.StaffName.Title, receipt.StaffName.Width);
+            receipt.StaffName.Top = currentTopSpace + _layoutTemplate.StaffName.TopPadding;
             receipt.StaffName.Left = _layoutTemplate.StaffName.Left + _layoutTemplate.LeftMargin;
-            currentTopSpace = receipt.StaffName.Top;
+            currentTopSpace = receipt.StaffName.Top + receipt.StaffName.Height;
+
 
             receipt.HeaderDivider.Color = _layoutTemplate.HeaderDivider.Color;
             receipt.HeaderDivider.Top = currentTopSpace + _layoutTemplate.HeaderDivider.TopPadding;
@@ -71,6 +77,7 @@ namespace ReceiptTemplateSkiaSharp
             {
                 receipt.CustomerAddress.Color = _layoutTemplate.CustomerAddress.Color;
                 receipt.CustomerAddress.TextSize = _layoutTemplate.CustomerAddress.TextSize;
+                receipt.CustomerAddress.Width = _layoutTemplate.CustomerAddress.Width;
                 receipt.CustomerAddress.Height = CalculateTextHeight(receipt.CustomerAddress.TextSize, receipt.CustomerAddress.Title);
                 receipt.CustomerAddress.Top = currentTopSpace + _layoutTemplate.CustomerAddress.TopPadding + receipt.CustomerAddress.Height;
                 receipt.CustomerAddress.Left = _layoutTemplate.CustomerAddress.Left + _layoutTemplate.LeftMargin;
@@ -394,7 +401,7 @@ namespace ReceiptTemplateSkiaSharp
             return receipt;
         }
 
-        private float CalculateCenteredTextX(float textSize, string str, float boxLeft)
+        private float CalculateCenteredTextX(float textSize, string str, float maxWidth, float boxLeft = 0)
         {
             using (SKPaint textPaint = new SKPaint())
             {
@@ -422,6 +429,18 @@ namespace ReceiptTemplateSkiaSharp
 
                 return xText;
             }
+        }
+
+        private float CalculateTextHeight(float textSize, string str, float maxWidth, int maxLine = 1)
+        {
+            var storeName = new RichString()
+                                        .FontFamily("Segoe UI")
+                                        .FontSize(textSize)
+                                        .FontWeight(700)
+                                        .Add(str);
+            storeName.MaxWidth = maxWidth;
+            storeName.MaxLines = maxLine;
+            return storeName.MeasuredHeight;
         }
 
         private float CalculateTextHeight(float textSize, string str)
